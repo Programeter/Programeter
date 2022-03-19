@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Questions extends Model {}
+class answers extends Model {}
 
 Questions.init(
   {
@@ -11,13 +11,13 @@ Questions.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    questionType1: {
+    answerType1: {
       type: DataTypes.STRING,
     },
-    questionType2: {
+    answerType2: {
       type: DataTypes.INTEGER,
     },
-    questionType3: {
+    answerType3: {
       type: DataTypes.BOOLEAN,
     },
     user_id: {
@@ -33,8 +33,8 @@ Questions.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "questions",
+    modelName: "answer",
   }
 );
 
-module.exports = Questions;
+module.exports = answers;
