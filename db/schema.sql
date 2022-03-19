@@ -7,7 +7,7 @@ USE programeter_db;
 CREATE TABLE users  (
     user_id INT NOT NULL AUTO_INCREMEMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    PASSWORD VARCHAR(30) NOT NULL
+    password VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE CATEGORY (
@@ -28,6 +28,7 @@ CREATE TABLE Answers (
     answer_id INTEGER NOT NULL,
     answered_by_id INTEGER NOT NULL,
     answer TEXT,
+    answer_weight INTEGER,
     PRIMARY KEY (answer_id, answered_by_id),
     FOREIGN KEY answers_id REFERENCES question(question_id),
     FOREIGN KEY answered_by_id REFERENCES user(user_id)
