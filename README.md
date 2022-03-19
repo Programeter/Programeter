@@ -29,7 +29,7 @@
 <br>
   
   <br>
- [Demo Video!](https://www.youtube.com/watch?v=NzONWTrZRrQ)
+ [Demo Video!]
 ## License
     GNU AGPLv3
 ## Questions
