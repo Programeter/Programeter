@@ -1,14 +1,14 @@
 
-const Questions = require("./Questions");
+const answers = require("./answers");
 const User = require("./User");
 
-User.hasOne(Questions, {
+User.hasOne(answers, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
-Questions.belongsTo(User, {
+answers.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-module.exports = { User, Questions };
+module.exports = { User, answers };
