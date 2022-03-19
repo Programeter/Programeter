@@ -1,51 +1,41 @@
 # Programeter
 
-## Description
-
-_What is this project for:_
+## Description 
+*What is this project for:* 
 <br>
-This is our second project for our UCSD (extension) Web Development course. It is a Website designed to assist in assisting fellow developers in finding people who are like minded and want to build a new project.
-
+  This is our second project for our UCSD (extension) Web Development course. It is a Website designed to assist in assisting fellow developers in finding people who are like minded and want to build a new project.
 ## Table of Contents
-
-- [install](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#Tests)
-- [Questions](#Questions)
-- [Github](#github)
-- [Email](#email)
-
+* [install](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#Tests)  
+* [Questions](#Questions)
+* [Github](#github)
+* [Email](#email)
 ## Installation
-
-_How to install and run:_
+*How to install and run:*
 <br>
-
-## Usage
-
-_How to use Programeter:_
+    
+## Usage 
+  *How to use Programeter:*
 <br>
-
+  
 ## Contributing
-
-_If you would like to contribute it, you can follow these guidelines for how to do so._
+  *If you would like to contribute it, you can follow these guidelines for how to do so.*
 <br>
-Trent Tkachuk, Joseph McArdle,Miguel Torre, Roberto Gonzalez
-
+  Trent Tkachuk, Joseph McArdle,Miguel Torre,  Roberto Gonzalez
 ## Tests
-
-_Tests for application and how to run them:_
+  *Tests for application and how to run them:*
 <br>
-
+  
+  <br>
+ [Demo Video!]
 ## License
-
     GNU AGPLv3
-
 ## Questions
-
-\*If you have any questions or recommendations please reach out to me at:
+*If you have any questions or recommendations please reach out to me at:
 <br>
-Github: https://github.com/
+Github: https://github.com/ 
 <br>
-Email:
+Email: 
