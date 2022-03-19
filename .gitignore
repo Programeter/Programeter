@@ -1,1 +1,3 @@
-.evn
+node-modules
+.jshintrc
+.env
