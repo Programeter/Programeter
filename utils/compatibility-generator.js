@@ -12,6 +12,12 @@ const generateCompatibility = async (user1Id, user2Id) => {
         where: {
             user_id: user1Id,
         },
+        include: [{
+            model: 'question',
+            include: [{
+                model: 'category'
+            }]
+        }],
         order: ['question_id', 'ASC'],
     });
 
@@ -23,9 +29,9 @@ const generateCompatibility = async (user1Id, user2Id) => {
     });
 
     user1Answers.forEach((answer, index) => {
-        const question = questions.find(x => x.id === answer.answers_id);
-        const weight = categories.find(x => x.id === question.category_id);
+        // const question = questions.find(x => x.id === answer.answers_id);
+        // const weight = categories.find(x => x.id === question.category_id);
 
-        compatibility_percentage -= Math.abs(answer - user2Answers[index]) * weight;
+        compatibility_percentage -= Math.abs(answer - user2Answers[index]) * answer.question.category.weight;
     });
 };
