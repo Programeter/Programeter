@@ -32,22 +32,14 @@ User.init(
         len: [8],
       },
     },
-    first_name: {
+    user_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },    
     languages_known: {
       type: DataTypes.STRING,
       allowNull: false,
       },
-    looking_for: {
-      type: DataTypes.ENUM,
-      values: ["Front-end", "Back-end", "FullStack"],
-    },
   },
   {
     hooks: {
