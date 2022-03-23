@@ -37,4 +37,4 @@ LanguageLink.init(
     },
 );
 
-module.exports = Language;
+module.exports = LanguageLink;
