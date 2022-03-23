@@ -19,6 +19,7 @@ body {
 .brand-title {
     font-size: 1.5rem;
     margin: .5rem;
+    float:none;
 }
 
 .navbar-links {
@@ -62,6 +63,20 @@ body {
     width: 100%;
     background-color: white;
     border-radius: 10px;
+}
+.email-form {
+    width: 100%;
+}
+
+.password-form {
+    width:100%;
+}
+.search-form {
+    width: 80%;
+    justify-items:;
+}
+.langlist {
+    list-style-position: inside;
 }
 
 @media (max-width: 800px) {
