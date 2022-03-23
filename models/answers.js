@@ -5,27 +5,34 @@ class answers extends Model {}
 
 answers.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    answerType1: {
-      type: DataTypes.STRING,
-    },
-    answerType2: {
-      type: DataTypes.INTEGER,
-    },
-    answerType3: {
-      type: DataTypes.BOOLEAN,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
+    answer_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    answered_by_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+    },
+    answer: {
+      type: DataTypes.TEXT,
+    },
+    answers_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'questions',
+        key: 'question_id',
+        unique: false
+      }
+    },
     },
   },
   {
@@ -33,7 +40,7 @@ answers.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "answer",
+    modelName: "answers",
   }
 );
 
