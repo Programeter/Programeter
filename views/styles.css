@@ -8,9 +8,9 @@ body {
 }
 
 .navbar {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
+    /* display: flex;
+    /* position: relative; 
+    justify-content: space-between; */
     align-items: center;
     background-color: #333;
     color: white;
@@ -19,7 +19,6 @@ body {
 .brand-title {
     font-size: 1.5rem;
     margin: .5rem;
-    float:none;
 }
 
 .navbar-links {
@@ -48,14 +47,11 @@ body {
 }
 
 .toggle-button {
-    position: absolute;
-    top: .75rem;
-    right: 1rem;
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 60px;
+    height: 20;
 }
 
 .toggle-button .bar {
@@ -77,6 +73,9 @@ body {
 }
 .langlist {
     list-style-position: inside;
+}
+.logo {
+    float:left;
 }
 
 @media (max-width: 800px) {
