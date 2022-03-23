@@ -11,12 +11,47 @@ questions.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    question: {
-      type: DataTypes.TEXT,
+    tabsOrSpaces: {
+      type: DataTypes.STRING,
     },
-    asked_by_id: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+    codeTest: {
+      type: DataTypes.STRING,
+    },
+    howMuchComment: {
+        type: DataTypes.STRING,
+    },
+    timeOfDay: {
+        type: DataTypes.STRING,
+    },
+    preferedCriticism: {
+        type: DataTypes.STRING,
+    },
+    music: {
+        type: DataTypes.STRING,
+    },
+    coffeeOrTea: {
+        type: DataTypes.STRING,
+    },
+    IntroOrExtro: {
+        type: DataTypes.STRING,
+    },
+    catsOrDogs: {
+        type: DataTypes.STRING,
+    },
+    lookingForInBusiness: {
+        type: DataTypes.STRING,
+    },
+    languagesKnown: {
+        type: DataTypes.STRING,
+    },
+    collaborativeEnvironment: {
+        type: DataTypes.STRING,
+    },
+    workedPreviously: {
+        type: DataTypes.STRING,
+    },
+    mainOS: {
+        type: DataTypes.STRING,
     },
     user_id: {
       type: DataTypes.INTEGER,

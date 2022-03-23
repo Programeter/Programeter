@@ -5,6 +5,10 @@ class useranswers extends Model {}
 
 useranswers.init(
   {
+    id: {
+      type: Datatypes.INTEGER,
+      autoIncrement: true,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -17,13 +21,6 @@ useranswers.init(
         references: {
             model: 'answers',
             key: 'answer_id',
-      },
-    },
-      answer: {
-        type: DataTypes.TEXT,
-        references: {
-            model: 'answers',
-            key: 'answer',
       },
     },
   },
