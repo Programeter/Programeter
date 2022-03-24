@@ -1,11 +1,11 @@
-const answers = require("./Option");
+const option = require("./Option");
 const users = require("./User");
 const questions = require("./Question");
 const useranswers = require("./UserAnswer");
 const languages = require('./Language');
 const languagelink = require("./LanguageLink");
 
-users.belongsToMany(answers, {
+users.belongsToMany(option, {
   through: {
     model: useranswers,
     unique: false,
@@ -14,7 +14,7 @@ users.belongsToMany(answers, {
   onDelete: "CASCADE",
 });
 
-answers.belongsToMany(users, {
+option.belongsToMany(users, {
   through: {
     model: useranswers,
     unique: false,
@@ -23,11 +23,11 @@ answers.belongsToMany(users, {
   onDelete: "CASCADE",
 });
 
-answers.belongsTo(questions, {
+option.belongsTo(questions, {
   foreignKey: "question_id",
 });
 
-questions.hasMany(answers, {
+questions.hasMany(option, {
   foreignKey: 'question_id',
   onDelete: "CASCADE",
 });
@@ -48,4 +48,4 @@ languages.belongsToMany(users, {
   as: 'language_users',
 });
 
-module.exports = { users, answers, questions, useranswers, languages, languagelink };
+module.exports = { users, option, questions, useranswers, languages, languagelink };
