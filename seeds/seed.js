@@ -1,62 +1,63 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Question, Option, Language, UserAnswer, LanguageLink } = require('../models');
 
 const userData = require('./userData.json');
 const questionData = require('./QuestionData');
 const optionData = require('./optionsData');
-const languageData = require('./languageData')
+const languageData = require('./languageData');
 
 const seedDatabase = async () => {
+  let users;
+  let questions;
+  let options;
+  let languages;
+
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData, {
+  users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
  
-  const questions = await User.bulkCreate(questionData, {
+  questions = await Question.bulkCreate(questionData, {
     individualHooks: true,
     returning: true,
   });
   
-  const options = await User.bulkCreate(optionData, {
+  options = await Option.bulkCreate(optionData, {
     individualHooks: true,
     returning: true,
   });
   
-  const language = await User.bulkCreate(languageData, {
+  languages = await Language.bulkCreate(languageData, {
     individualHooks: true,
     returning: true,
   });
 
-  for (const project of projectData) {
-    await UserAnswer.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  // generate random answers and languages for each user
+  for (const user of users) {
+    // generate random answers for each question
+    for (const question of questions) { 
+      const options = await Option.findall({
+        where: {
+          question_id: question.id
+        }
+      });
+      await UserAnswer.create({
+        user_id: user.id,
+        answer_id: options[Math.floor(Math.random()*options.length)].id
+      });
+    }
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: questions[Math.floor(Math.random() * users.length)].id,
-    });
+    // give each user three random languages
+    for (let i = 1; i <= 3; i++) {
+      await LanguageLink.create({
+        user_id: user.id,
+        language_id: languages[Math.floor(Math.random() * languages.length)].id
+      });
+    }
   }
-
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: options[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: language[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
+  
   process.exit(0);
 
 };
