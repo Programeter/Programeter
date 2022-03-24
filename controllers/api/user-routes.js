@@ -1,5 +1,24 @@
 const router = require('express').Router();
-const { User } = require('../../models')
+const { User, Language, LanguageLink, Option, UserAnswer } = require('../../models')
+
+// GET one user
+router.get('/:id', (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {model: Language, through: LanguageLink, as: 'known_languages'},
+        {model: Option, through: UserAnswer, as: 'user_answers'}
+      ]
+    });
+    if (!userData) {
+      res.status(404).json({ message: 'No user with this id!' });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // CREATE new user
 router.post('/', async (req, res) => {
