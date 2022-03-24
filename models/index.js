@@ -1,4 +1,4 @@
-const answers = require("./Answer");
+const answers = require("./Option");
 const users = require("./User");
 const questions = require("./Question");
 const useranswers = require("./UserAnswer");
@@ -28,7 +28,7 @@ answers.belongsTo(questions, {
 });
 
 questions.hasMany(answers, {
-  foreignKey: 'answers_id',
+  foreignKey: 'question_id',
   onDelete: "CASCADE",
 });
 
