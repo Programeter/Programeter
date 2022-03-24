@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { users } = require('../models');
-const withAuth = require('../utils/auth')
+const { user } = require('../models');
+const withAuth = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     })
   } catch (err){
     console.log(err);
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
 });
   

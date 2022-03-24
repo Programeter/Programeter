@@ -1,7 +1,7 @@
-const answers = require("./answers");
-const users = require("./users");
-const questions = require("./questions");
-const useranswers = require("./useranswers");
+const answers = require("./Answer");
+const users = require("./User");
+const questions = require("./Question");
+const useranswers = require("./UserAnswer");
 const languages = require('./Language');
 const languagelink = require("./LanguageLink");
 
@@ -24,7 +24,7 @@ answers.belongsToMany(users, {
 });
 
 answers.belongsTo(questions, {
-  foreignKey: "answers_id",
+  foreignKey: "question_id",
 });
 
 questions.hasMany(answers, {

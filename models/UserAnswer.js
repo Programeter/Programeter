@@ -1,18 +1,19 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class useranswers extends Model {}
+class UserAnswer extends Model {}
 
-useranswers.init(
+UserAnswer.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       autoIncrement: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'users',
         key: 'id',
       },
     },
@@ -20,7 +21,7 @@ useranswers.init(
         type: DataTypes.INTEGER,
         references: {
             model: 'answers',
-            key: 'answer_id',
+            key: 'id',
       },
     },
   },
@@ -33,4 +34,4 @@ useranswers.init(
   }
 );
 
-module.exports = useranswers;
+module.exports = UserAnswer;
