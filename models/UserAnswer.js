@@ -13,14 +13,14 @@ UserAnswer.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'users',
+        model: 'user',
         key: 'id',
       },
     },
-      answer_id: {
+      option_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'answers',
+            model: 'option',
             key: 'id',
       },
     },

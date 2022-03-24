@@ -34,8 +34,8 @@ const getLanguages = async (user, repoName) => {
 const searchByLanguage = async (user, languageList) => {
     let repoList = [];
     const repos = await getRepos(user);
-    repos.forEach(async (repo) => {
-        const languages = await getLanguages(user, repo.name);
+    repos.forEach((repo) => {
+        const languages = getLanguages(user, repo.name);
         languages.forEach((language) => {
             if (languageList.find((listLanguage) => listLanguage == language) != -1) {
                 repoList.push(repo);

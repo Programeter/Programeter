@@ -13,11 +13,16 @@ Option.init(
     },
     option: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    value: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     question_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'option',
+        model: 'question',
         key: 'id',
         unique: false
       },
@@ -28,7 +33,7 @@ Option.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "options",
+    modelName: "option",
   }
 );
 

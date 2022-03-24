@@ -2,9 +2,9 @@ const sequelize = require('../config/connection');
 const { User, Question, Option, Language, UserAnswer, LanguageLink } = require('../models');
 
 const userData = require('./userData.json');
-const questionData = require('./QuestionData');
-const optionData = require('./optionsData');
-const languageData = require('./languageData');
+const questionData = require('./QuestionData.json');
+const optionData = require('./optionsData.json');
+const languageData = require('./languageData.json');
 
 const seedDatabase = async () => {
   let users;
@@ -12,7 +12,7 @@ const seedDatabase = async () => {
   let options;
   let languages;
 
-  await sequelize.sync({ force: true });
+  await sequelize.sync();
 
   users = await User.bulkCreate(userData, {
     individualHooks: true,
@@ -38,7 +38,7 @@ const seedDatabase = async () => {
   for (const user of users) {
     // generate random answers for each question
     for (const question of questions) { 
-      const options = await Option.findall({
+      const options = await Option.findAll({
         where: {
           question_id: question.id
         }
