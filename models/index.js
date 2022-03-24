@@ -1,23 +1,51 @@
-const answers = require("./answers");
-const users = require("./users");
-const questions = require("./questions")
-const useranswers = require("./useranswers")
+const option = require("./Option");
+const users = require("./User");
+const questions = require("./Question");
+const useranswers = require("./UserAnswer");
+const languages = require('./Language');
+const languagelink = require("./LanguageLink");
 
-users.hasOne(answers, {
-  foreignKey: "user_id",
+users.belongsToMany(option, {
+  through: {
+    model: useranswers,
+    unique: false,
+  },
+  as: 'user_answers',
   onDelete: "CASCADE",
 });
 
-answers.belongsTo(users, {
-  foreignKey: "user_id",
+option.belongsToMany(users, {
+  through: {
+    model: useranswers,
+    unique: false,
+  },
+  as: 'answer_users',
+  onDelete: "CASCADE",
 });
 
-questions.belongsToMany(users, {
-  //struggle.
+option.belongsTo(questions, {
+  foreignKey: "question_id",
 });
 
-useranswers.belongsToMany(useranswers, {
-  //continue to struggle.
-}),
+questions.hasMany(option, {
+  foreignKey: 'question_id',
+  onDelete: "CASCADE",
+});
 
-module.exports = { users, answers, questions, useranswers};
+users.belongsToMany(languages, {
+  through: {
+    model: languagelink,
+    unique: false,
+  },
+  as: 'user_languages',
+});
+
+languages.belongsToMany(users, {
+  through: {
+    model: languagelink,
+    unique: false,
+  },
+  as: 'language_users',
+});
+
+module.exports = { users, option, questions, useranswers, languages, languagelink };
