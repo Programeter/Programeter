@@ -45,7 +45,7 @@ const seedDatabase = async () => {
       });
       await UserAnswer.create({
         user_id: user.id,
-        answer_id: options[Math.floor(Math.random()*options.length)].id
+        option_id: options[Math.floor(Math.random()*options.length)].id
       });
     }
 
