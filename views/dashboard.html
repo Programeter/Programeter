@@ -44,14 +44,24 @@
 
   <h2 class="d-flex justify-content-center">Dashboard</h2><br>
   <!--Search bar-->
-  <form class="d-flex justify-content-center"id="searchbar"> 
+  <!-- <form class="d-flex justify-content-center"id="searchbar"> 
     <div class="input-group mb-1" >
         <div class="mx-3">
         </div>
         <input type="text" class="search-form" placeholder="Start typing technologies">
       </div>
       <button type="button" class="btn btn-dark me-3">Search!</button>
-    </form>
+    </form> -->
+    <div class="wrapper">
+      <div class="search-input">
+        <a href="" target="_blank" hidden></a>
+        <input type="text" placeholder="Type to search..">
+        <div class="autocom-box">
+          <!-- here list are inserted from javascript -->
+        </div>
+        <div class="icon"><i class="fas fa-search"></i></div>
+      </div>
+    </div>
 
     <!--Featured cards-->
       <div class="container py-3">
@@ -112,4 +122,6 @@
 
 </body>
 <script src="navbar.js"></script>
+<script src="autofillsearch.js"></script>
+
 </html>
