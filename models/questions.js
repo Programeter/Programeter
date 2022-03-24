@@ -5,61 +5,62 @@ class questions extends Model {}
 
 questions.init(
   {
-    question_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    tabsOrSpaces: {
+    question_name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
-    codeTest: {
+    question_text: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
-    howMuchComment: {
-        type: DataTypes.STRING,
-    },
-    timeOfDay: {
-        type: DataTypes.STRING,
-    },
-    preferedCriticism: {
-        type: DataTypes.STRING,
-    },
-    music: {
-        type: DataTypes.STRING,
-    },
-    coffeeOrTea: {
-        type: DataTypes.STRING,
-    },
-    IntroOrExtro: {
-        type: DataTypes.STRING,
-    },
-    catsOrDogs: {
-        type: DataTypes.STRING,
-    },
-    lookingForInBusiness: {
-        type: DataTypes.STRING,
-    },
-    languagesKnown: {
-        type: DataTypes.STRING,
-    },
-    collaborativeEnvironment: {
-        type: DataTypes.STRING,
-    },
-    workedPreviously: {
-        type: DataTypes.STRING,
-    },
-    mainOS: {
-        type: DataTypes.STRING,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
+    // tabsOrSpaces: {
+    //   type: DataTypes.STRING,
+    // },
+    // codeTest: {
+    //   type: DataTypes.STRING,
+    // },
+    // howMuchComment: {
+    //     type: DataTypes.STRING,
+    // },
+    // timeOfDay: {
+    //     type: DataTypes.STRING,
+    // },
+    // preferedCriticism: {
+    //     type: DataTypes.STRING,
+    // },
+    // music: {
+    //     type: DataTypes.STRING,
+    // },
+    // coffeeOrTea: {
+    //     type: DataTypes.STRING,
+    // },
+    // IntroOrExtro: {
+    //     type: DataTypes.STRING,
+    // },
+    // catsOrDogs: {
+    //     type: DataTypes.STRING,
+    // },
+    // lookingForInBusiness: {
+    //     type: DataTypes.STRING,
+    // },
+    // languagesKnown: {
+    //     type: DataTypes.STRING,
+    // },
+    // collaborativeEnvironment: {
+    //     type: DataTypes.STRING,
+    // },
+    // workedPreviously: {
+    //     type: DataTypes.STRING,
+    // },
+    // mainOS: {
+    //     type: DataTypes.STRING,
+    // },
   },
   {
     sequelize,

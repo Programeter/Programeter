@@ -6,7 +6,7 @@ class useranswers extends Model {}
 useranswers.init(
   {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
     },
     user_id: {
