@@ -33,7 +33,7 @@ LanguageLink.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: "language",
+        modelName: "languagelink",
     },
 );
 

@@ -1,158 +1,197 @@
 [
     {
         "option": "Tabs",
+        "value": 0,
         "question_id": 1
     },
     {
         "option": "Spaces",
+        "value": 1,
         "question_id": 1
     },
     {
         "option": "Alpha then beta releases to test in the wild",
+        "value": 0,
         "question_id": 2
     },
     {
         "option": "Writing a thorough Test suite",
+        "value": 1,
         "question_id": 2
     },
     {
         "option": "1",
+        "value": 0,
         "question_id": 3
     },
     {
         "option": "2",
+        "value": 1,
         "question_id": 3
     },
     {
         "option": "3",
+        "value": 2,
         "question_id": 3
     },
     {
         "option": "4",
+        "value": 3,
         "question_id": 3
     },
     {
         "option": "5",
+        "value": 4,
         "question_id": 3
     },
     {
         "option": "First Shift",
+        "value": 0,
         "question_id": 4
     },
     {
         "option": "Second Shift",
+        "value": 1,
         "question_id": 4
     },
     {
         "option": "Third Shift",
+        "value": 2,
         "question_id": 4
     },
     {
         "option": "Direct in real time",
+        "value": 0,
         "question_id": 5
     },
     {
         "option": "framed into context and during a review period",
+        "value": 1,
         "question_id": 5
     },
     {
         "option": "Provided proper training on first availability",
+        "value": 2,
         "question_id": 5
     },
     {
         "option": "I cant work without it",
+        "value": 0,
         "question_id": 6
     },
     {
         "option": "I prefer Silence",
+        "value": 1,
         "question_id": 6
     },
     {
         "option": "I prefer group communication as I code",
+        "value": 2,
         "question_id": 6
     },
     {
         "option": "Coffee",
+        "value": 0,
         "question_id": 7
     },
     {
         "option": "Tea",
+        "value": 1,
         "question_id": 7
     },
     {
         "option": "Other",
+        "value": 2,
         "question_id": 7
     },
     {
         "option": "Introvert",
+        "value": 0,
         "question_id": 8
     },
     {
         "option": "Extrovert",
+        "value": 1,
         "question_id": 8
     },
     {
         "option": "Ambivert",
+        "value": 2,
         "question_id": 8
     },
     {
         "option": "Dogs",
+        "value": 0,
         "question_id": 9
     },
     {
         "option": "Cats",
+        "value": 1,
         "question_id": 9
     },
     {
         "option": "Other",
+        "value": 2,
         "question_id": 9
     },
     {
         "option": "Making the world a better place",
+        "value": 0,
         "question_id": 10
     },
     {
         "option": "Money",
+        "value": 1,
         "question_id": 10
     },
     {
         "option": "I just want to work remotely",
+        "value": 2,
         "question_id": 10
     },
     {
         "option": "Short Commute",
+        "value": 3,
         "question_id": 10
     },
     {
         "option": "Good work Environment",
+        "value": 4,
         "question_id": 10
     },
     {
         "option": "Yes",
+        "value": 0,
         "question_id": 11
     },
     {
         "option": "No",
+        "value": 1,
         "question_id": 11
     },
     {
         "option": "Yes",
+        "value": 0,
         "question_id": 12
     },
     {
         "option": "No",
+        "value": 1,
         "question_id": 12
     },
     {
         "option": "Windows",
+        "value": 0,
         "question_id": 13
     },
     {
         "option": "Linux",
+        "value": 1,
         "question_id": 13
     },
     {
         "option": "MacOS",
+        "value": 2,
         "question_id": 13
-    },
+    }
 ]
