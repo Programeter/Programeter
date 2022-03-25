@@ -23,7 +23,7 @@ const height = newCaptcha.height;
 router.get('/', async (req, res) => {
     // insert home page stuff here
   try {
-    res.render('homepage', {
+    res.render('loginpage', {
       loggedIn: req.session.loggedIn
     });
   } catch (err){
