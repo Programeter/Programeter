@@ -15,10 +15,15 @@ Question.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    question_text: {
+    text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    category: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    
     // tabsOrSpaces: {
     //   type: DataTypes.STRING,
     // },
