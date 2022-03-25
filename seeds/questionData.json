@@ -1,54 +1,67 @@
 [
     {
         "question_name": "tabs_or_spaces",
-        "question_text": "Do you use Tabs or Spaces"
+        "text": "Do you use Tabs or Spaces",
+        "category": "work"
     },
     {
         "question_name": "code_test",
-        "question_text": "How do you prefer to test your code?"
+        "text": "How do you prefer to test your code?",
+        "category": "work"
     },
     {
         "question_name": "how_much_Comments",
-        "question_text": "On a scale of 1 to 5, How much Do you comment?"
+        "text": "On a scale of 1 to 5, How much Do you comment?",
+        "category": "work"
     },
     {
         "question_name": "time_of_day",
-        "question_text": "What time of day do you work best?"
+        "text": "What time of day do you work best?",
+        "category": "work"
     },
     {
         "question_name": "prefered_criticism",
-        "question_text": "How do you prefer to to recieve critcism"
+        "text": "How do you prefer to to recieve critcism",
+        "category": "work"
     },
     {
         "question_name": "music",
-        "question_text": "Do you listen to music while you code?"
+        "text": "Do you listen to music while you code?",
+        "category": "personal"
     },
     {
         "question_name": "coffee_or_tea",
-        "question_text": "Coffee or Tea"
+        "text": "Coffee or Tea",
+        "category": "personal"
     },
     {
         "question_name": "intro_extro_ambi",
-        "question_text": "Introvert, Extrovert or Ambivert?"
+        "text": "Introvert, Extrovert or Ambivert?",
+        "category": "personal"
     },
     {
         "question_name": "cats_or_dogs",
-        "question_text": "Do you have Cats, Dogs or Other?"
+        "text": "Do you have Cats, Dogs or Other?",
+        "category": "personal"
     },
     {
         "question_name": "looking_for_in_business",
-        "question_text": "What are you looking for in a business?"
+        "text": "What are you looking for in a business?",
+        "category": "personal"
     },
     {
         "question_name": "collaborative_environment",
-        "question_text": "Have you programmed in a collaborative enviroment before?"
+        "text": "Have you programmed in a collaborative enviroment before?",
+        "category": "personal"
     },
     {
         "question_name": "worked_previously",
-        "question_text": "Have you ever worked as a developer before?"
+        "text": "Have you ever worked as a developer before?",
+        "category": "personal"
     },
     {
         "question_name": "main_os",
-        "question_text": "What is your main operating system?"
+        "text": "What is your main operating system?",
+        "category": "personal"
     }
 ]
