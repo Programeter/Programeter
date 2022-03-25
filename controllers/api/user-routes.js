@@ -31,18 +31,18 @@ router.post('/', async (req, res) => {
       });
 
       // for loop here
-      req.body.answers.forEach((answer)=> {
+      req.body.answers.forEach( async (answer)=> {
         const newUserAnswer = await UserAnswer.create({
           user_id: dbUserData.id,
           option_id: answer
-        })
-      })
-      req.body.languages.forEach((language)=> {
+        });
+      });
+      req.body.languages.forEach( async (language)=> {
         const newLanguageLink = await LanguageLink.create({
           user_id: dbUserData.id,
           language_id: language
-        })
-      })
+        });
+      });
   
       req.session.save(() => {
         req.session.loggedIn = true;
