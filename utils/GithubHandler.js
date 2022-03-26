@@ -7,7 +7,7 @@ const getRepos = async (user) => {
         method: "GET",
         withCredentials: true,
         headers: {
-            authorization: 'token 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'
+            authorization: `token ${process.env.GH_PA_TOKEN}`
         },
     });
     const repos = await response.json();
@@ -21,7 +21,7 @@ const getLanguages = async (user, repoName) => {
         method: "GET",
         withCredentials: true,
         headers: {
-            authorization: 'token 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'
+            authorization: `token ${process.env.GH_PA_TOKEN}`
         },
     });
     const languageObject = await response.json();
