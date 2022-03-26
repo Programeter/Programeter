@@ -5,6 +5,5 @@ const homeRoutes = require('./home-routes.js');
 
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
-router.use('/search', searchRoutes);
 
 module.exports = router;
