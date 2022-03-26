@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Question, Option  } = require('../../models')
 
-// CREATE new user
+// get all questions
 router.get('/', async (req, res) => {
     try {
       const questions = await Question.findAll({
