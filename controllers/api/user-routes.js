@@ -1,6 +1,24 @@
 const router = require('express').Router();
 const { User, Language, LanguageLink, Option, UserAnswer } = require('../../models')
 
+// get all users
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.findAll({
+      include: [
+        {model: Language, through: LanguageLink, as: 'user_languages'},
+        {model: Option, through: UserAnswer, as: 'user_answers'}
+      ]
+    });
+    
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 // GET one user
 router.get('/:id', async (req, res) => {
   try {
