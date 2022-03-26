@@ -1,10 +1,10 @@
 var searchInput = document.getElementById('searchbar');
 var searchBtn = document.getElementById('searchBtn');
-// var searchValue = document.getElementById()
+var searchArray = [];
 
 searchBtn.addEventListener("click", ()=> {
-    setCookie("search cookie", searchInput.value, 30)
-    console.log(searchInput.value)
+    searchArray.push(searchInput.value)
+    setCookie("search cookie", searchArray, 3000)
 })
 
 
@@ -29,11 +29,4 @@ function getCookie(name) {
         }
     }
     return "";
-}
-
-function deleteCookie(name) {
-    var d = new Date();
-    d.setTime(d.getTime() - (60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = name + "=;" + expires + ";path=/";
 }
