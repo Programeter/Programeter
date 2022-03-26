@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Language, LanguageLink, Option, UserAnswer } = require('../../models')
+const { User, Language, LanguageLink, Option, UserAnswer } = require('../../models');
 
 // get all users
 router.get('/', async (req, res) => {
