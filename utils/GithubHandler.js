@@ -37,19 +37,19 @@ const searchByLanguage = async (user, languageList) => {
     let reposCycled = 0;
     const repos = await getRepos(user);
     numberOfRepos = repos.length;
-    for (const repo in repos) {
+    for (const x in repos) {
         reposCycled++;
-        const languages = await getLanguages(user, repos[repo].name);
-        for(const language in languages) {
-            if (languageList.find(listLanguage => listLanguage == languages[language]) != undefined && repoList.findIndex(listRepo => listRepo.id == repos[repo].id) == -1) {
+        const languages = await getLanguages(user, repos[x].name);
+        for(const i in languages) {
+            if (languageList.find(listLanguage => listLanguage == languages[i]) != undefined && repoList.findIndex(listRepo => listRepo.id == repos[x].id) == -1) {
                 const repoInfo = {
-                    repo_name: repos[repo].name,
+                    repo_name: repos[x].name,
                     user: user,
-                    description: repos[repo].description,
-                    url: repo.html_url,
+                    description: repos[x].description,
+                    url: repos[x].html_url,
                     languages: languages,
-                    created_at: repos[repo].created_at,
-                    updated_at: repos[repo].updated_at
+                    created_at: repos[x].created_at,
+                    updated_at: repos[x].updated_at
                 };
                 repoList.push(repoInfo);
                 continue;

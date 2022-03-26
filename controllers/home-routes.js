@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
-const githubHandler = require('../utils/GithubHandler');
-const compatibilityGenerator = require('../utils/compatibility-generator');
+const searchHandler = require('../utils/searchHandler');
 
 // import library
 const captcha = require("nodejs-captcha");
@@ -35,33 +34,35 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/search', async (req, res) => {
-  let users = await User.findAll();
-  let possibleUsers = [];
-  const numOfUsers = users.length;
-  let usersTried1 = 0;
-  let usersTried2 = 0;
-  let repoList = [];
-  for (const user in users) {
-      usersTried1++;
-      if (1 == users[user].dataValues.id) {
-          continue;
-      }
-      const compatibility = await compatibilityGenerator(1, users[user].dataValues.id, req.body.languages);
-      if (await compatibility.personal_compatibility > 1 && await compatibility.work_compatibility > 1 && await compatibility.language_compataibility > 1) {
-          possibleUsers.push(users[user]);
-      }
-      if (usersTried1 >= numOfUsers) {
-          for (const possibleUser in possibleUsers) {
-              usersTried2++;
-              const repos = await githubHandler.searchByLanguage(possibleUsers[possibleUser].dataValues.github_name, req.body.languages);
-              repoList = repoList.concat(repos);
-              if (usersTried2 >= possibleUsers.length) {
-                  // console.log(repoList);
-                  res.status(200).send(repoList);
-              }
-          }
-      }
-  }
+  // let users = await User.findAll();
+  // let possibleUsers = [];
+  // const numOfUsers = users.length;
+  // let usersTried1 = 0;
+  // let usersTried2 = 0;
+  // let repoList = [];
+  // for (const user in users) {
+  //     usersTried1++;
+  //     if (1 == users[user].dataValues.id) {
+  //         continue;
+  //     }
+  //     const compatibility = await compatibilityGenerator(1, users[user].dataValues.id, req.body.languages);
+  //     if (await compatibility.personal_compatibility > 1 && await compatibility.work_compatibility > 1 && await compatibility.language_compataibility > 1) {
+  //         possibleUsers.push(users[user]);
+  //     }
+  //     if (usersTried1 >= numOfUsers) {
+  //         for (const possibleUser in possibleUsers) {
+  //             usersTried2++;
+  //             const repos = await githubHandler.searchByLanguage(possibleUsers[possibleUser].dataValues.github_name, req.body.languages);
+  //             repoList = repoList.concat(repos);
+  //             if (usersTried2 >= possibleUsers.length) {
+  //                 // console.log(repoList);
+  //                 res.status(200).send(repoList);
+  //             }
+  //         }
+  //     }
+  // }
+  const searchResults = await searchHandler(1, req.body.languages);
+  res.status(200).json(searchResults);
 });
 
 router.get('/verify-captcha', (req, res) => {
