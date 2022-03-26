@@ -20,11 +20,13 @@ const width = newCaptcha.width;
 // Height of the image
 const height = newCaptcha.height;
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     // insert home page stuff here
   try {
-    res.render('dashboard', {
-      loggedIn: req.session.loggedIn
+    res.render('loginpage', {
+      loggedIn: req.session.loggedIn,
+      title: 'Programeter Log In'
+
     });
   } catch (err){
     console.log(err);
