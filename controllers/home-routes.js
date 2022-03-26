@@ -22,16 +22,11 @@ const width = newCaptcha.width;
 // Height of the image
 const height = newCaptcha.height;
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     // insert home page stuff here
-    if (!req.session.loggedIn) {
-      res.redirect('/login');
-      return;
-    }
   try {
     res.render('dashboard', {
-      loggedIn: req.session.loggedIn,
-    
+      loggedIn: req.session.loggedIn
     });
   } catch (err){
     console.log(err);
@@ -95,15 +90,12 @@ router.get('/user/:id', withAuth, async (req, res) => {
 
 
 router.get('/login', (req, res) => {
-  
     if (req.session.loggedIn) {
-      res.redirect('/dashboard');
+      res.redirect('/');
       return;
     }
   
-    res.render('loginpage', {
-      title: 'Programeter Log In'
-    })
+    res.render('loginpage');
   });
 
 router.get('/signup', (req, res) => {
