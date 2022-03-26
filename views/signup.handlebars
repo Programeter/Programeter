@@ -52,7 +52,13 @@
 {{#each questions as |question|}} 
 <p>
   {{question.dataValues.text}}<br>
-  {{question.dataValues.options.0.dataValues.option}}
+<select id="values">
+  <option value="1">{{question.dataValues.options.0.dataValues.option}}</option>
+  <option value="2">{{question.dataValues.options.1.dataValues.option}}</option>
+  <option value="3">{{question.dataValues.options.2.dataValues.option}}</option>
+  <option value="4">{{question.dataValues.options.3.dataValues.option}}</option>
+  <option value="5">{{question.dataValues.options.4.dataValues.option}}</option>
+</select>
 </p>
 {{/each}}
 
