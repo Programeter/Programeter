@@ -37,33 +37,33 @@ const searchByLanguage = async (user, languageList) => {
     let reposCycled = 0;
     const repos = await getRepos(user);
     numberOfRepos = repos.length;
-    repos.forEach(async (repo) => {
+    for (const repo in repos) {
         reposCycled++;
-        const languages = await getLanguages(user, repo.name);
-        languages.forEach((language) => {
-            if (languageList.find(listLanguage => listLanguage == language) != undefined && repoList.findIndex(listRepo => listRepo.id == repo.id) == -1) {
+        const languages = await getLanguages(user, repos[repo].name);
+        for(const language in languages) {
+            if (languageList.find(listLanguage => listLanguage == languages[language]) != undefined && repoList.findIndex(listRepo => listRepo.id == repos[repo].id) == -1) {
                 const repoInfo = {
-                    repo_name: repo.name,
+                    repo_name: repos[repo].name,
                     user: user,
-                    description: repo.description,
+                    description: repos[repo].description,
                     url: repo.html_url,
                     languages: languages,
-                    created_at: repo.created_at,
-                    updated_at: repo.updated_at
+                    created_at: repos[repo].created_at,
+                    updated_at: repos[repo].updated_at
                 };
                 repoList.push(repoInfo);
-                return;
+                continue;
             }
             if (reposCycled >= numberOfRepos) {
                 // console.log(repoList);
                 return repoList;
             }
-        });
-    });
+        }
+    }
 };
 
 // getRepos('SlaterMcArdle');
 // getLanguages('SlaterMcArdle','Work_Day_Scheduler');
-// searchByLanguage('SlaterMcArdle', ['JavaScript', 'HTML']);
+// searchByLanguage('Tkachuk94', ['JavaScript']);
 
 module.exports = { getRepos, getLanguages, searchByLanguage };
