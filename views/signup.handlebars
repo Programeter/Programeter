@@ -13,22 +13,6 @@
 
 </head>
 <body>
-    <!-- Nav bar-->
-  <nav class="navbar">
-    <div class="brand-title">Programeeter</div>
-    <!-- <a href="#" class="toggle-button">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </a> -->
-    <div class="navbar-links">
-      <ul>
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#">My favorites</a></li>
-        <li><a href="#">My resume</a></li>
-      </ul>
-    </div>
-  </nav>
   <!--logo-->
   <div id="logo" class="d-flex justify-content-center p-3">
     <img src="https://i.gyazo.com/thumb/1200/e5a9a7dd7b99bf93ea908477f3a8e700-png.jpg" class="img-fluid max-width: 100% ">
@@ -38,55 +22,52 @@
   <h2 class="d-flex justify-content-center">Sign up</h2>
 
 
-<div id="names" class="container">
-    <div class="row">
-        <span>First name:</span>
-        <input type="text" class="col-6" id="firstname">
-       <span>Last Name:</span>
-        <input type="text" class="col-6" id="lastname">
-        <form class="form signup-form">
-    <div class="form-group">
-      <label for="email-signup">Email:</label>
-      <input class="form-input" type="text" id="email-signup" />
+<div id="names" class="container d-flex flex-column justify-content-center p-3">
+  <form class="form-group row justify-content-center p-3">
+    <div class="form-group row justify-content-center p-3">
+        <label for="email-signup">First Name:</label>
+        <input class="form-input" type="text" id="first_name" />
+        <br>
+        <label for="email-signup">Last Name:</label>
+        <input class="form-input" type="text" id="last_name" />
     </div>
-    <div class="form-group">
-      <label for="password-signup">Password:</label>
-      <input class="form-input" type="password" id="password-signup" />
-    </div>
+      <div class="form-group row justify-content-center p-3">
+        <label for="email-signup">Email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+        <label for="email-signup">Confirm Email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group row justify-content-center p-3">
+        <label for="password-signup">Password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+          <br>
+        <label for="password-signup">Confirm Password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group row justify-content-center p-3">
+        <label for="password-signup">Coding Skills:</label>
+        <input class="form-input" type="text" id="coding_skills" placeholder="Type to Search..." />
+      </div>
   </form>
-    </div>
-</div>
-<br>
-<Span>Coding skills:</Span><br>
-
-<!--Search bar-->
-<div class="wrapper">
-  <div class="search-input">
-    <a href="" target="_blank" hidden></a>
-    <input type="text" placeholder="Type to search..">
-    <div class="autocom-box">
-      <!-- Inserted elements from script -->
-    </div>
-    <div class="icon"><i class="fas fa-search"></i></div>
-  </div>
 </div>
 <br>
 
 <section class="container">
-  <p class="gallery-name">{{question.text}}</p>
+  <p class="question">{{questions.text}}</p>
   <section class="flex-row justify-center">
-    <!-- For each painting that belongs to this gallery, the painting-details partial is used to render each painting's data -->
-    {{#each Question.text}}
-    {{> Option.option}}
+    {{#each questions.text}}
+    {{> options.option}}
     {{/each}}
   </section>
 </section>
 
-<div class="signup-card">
-    <div class="form-group">
-      <button class="btn btn-dark" type="submit">signup</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-primary">Sign up!</button>
     </div>
-  </form>
+  </div>
 </div>
 
 <script src="./js/navbar.js"></script>
