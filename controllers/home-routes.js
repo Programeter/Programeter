@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Question, Option } = require('../models');
 const withAuth = require('../utils/auth');
 const githubHandler = require('../utils/GithubHandler');
 const compatibilityGenerator = require('../utils/compatibility-generator');
@@ -98,20 +98,43 @@ router.get('/login', (req, res) => {
     res.render('loginpage');
   });
 
-router.get('/signup', (req, res) => {
+router.get('/signup', async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
+  try {
+    const questions = await Question.findAll({
+      include: [{
+          model: Option
+      }]
+    });
+    questions.map((question) => question.get({plain: true}));
+    
+    // const questions = db_questionData.get({plain: true})
+    let result = captcha();
+    req.session.captchaVal = result.value;
+    let source = result.image;
+  
+    res.render('signup', {
+      loggedIn: req.session.loggedIn,
+      questions: questions,
+      captcha: source
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 
-  let result = captcha();
-  req.session.captchaVal = result.value;
-  let source = result.image;
+  // let result = captcha();
+  // req.session.captchaVal = result.value;
+  // let source = result.image;
 
-  res.render('signup', {
-    loggedIn: req.session.loggedIn,
-    captcha: source
-  });
+  // res.render('signup', {
+  //   loggedIn: req.session.loggedIn,
+  //   questions: questions,
+  //   captcha: source
+//   });
 });
 
 
