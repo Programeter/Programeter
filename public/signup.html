@@ -38,12 +38,22 @@
   <h2 class="d-flex justify-content-center">Sign up</h2>
 
 
-<div id="names" class="container">
+  <div id="names" class="container">
     <div class="row">
         <span>First name:</span>
         <input type="text" class="col-6" id="firstname">
        <span>Last Name:</span>
         <input type="text" class="col-6" id="lastname">
+        <form class="form signup-form">
+    <div class="form-group">
+      <label for="email-signup">Email:</label>
+      <input class="form-input" type="text" id="email-signup" />
+    </div>
+    <div class="form-group">
+      <label for="password-signup">Password:</label>
+      <input class="form-input" type="password" id="password-signup" />
+    </div>
+  </form>
     </div>
 </div>
 <br>
@@ -63,37 +73,37 @@
 <br>
 
 <div id="activetime">
-  <span>Are you an...?</span>
-  <div class="form-check">
-      <input class="form-check-input" type="radio" name="earlyb">
-      <label class="form-check-label" for="earlyb">
-        Early Bird
-      </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="nighto">
-    <label class="form-check-label" for="nighto">
-      Night Owl
-    </label>
-  </div>
+  <label for="activetime">Are you an...</label>
+<br>
+  <select name="activetime">
+    <option value="volvo">Early Bird</option>
+    <option value="saab">Night Owl</option>
+  </select>
+  
 </div>
 <br>
 
 <div id="tabspace">
-  <span>Tabs or spaces?</span>
-  <div class="form-check">
-      <input class="form-check-input" type="radio" name="tabs">
-      <label class="form-check-label" for="tabs">
-        Tabs
-      </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="spaces">
-    <label class="form-check-label" for="spaces">
-      Spaces
-    </label>
+  <label for="tabspace">Tabs or Spaces</label>
+  <br>
+    <select name="tabspace" id="">
+      <option value="volvo">Tabs</option>
+      <option value="saab">Spaces</option>
+    </select>
   </div>
 </div>
+<br>
+
+<div id="music">
+  <label for="music">Do you listen to music while you code?</label>
+  <br>
+    <select name="music" id="">
+      <option value="volvo">Music Please</option>
+      <option value="saab">I Prefer Silence</option>
+    </select>
+  </div>
+</div>
+<br>
 
 <div id="music">
   <span>Do you listen to music while you code?</span>
@@ -221,16 +231,6 @@
 <br>
 
 <div class="signup-card">
-  <h2 class="page-title">Signup</h2>
-  <form class="form signup-form">
-    <div class="form-group">
-      <label for="email-signup">Email:</label>
-      <input class="form-input" type="text" id="email-signup" />
-    </div>
-    <div class="form-group">
-      <label for="password-signup">Password:</label>
-      <input class="form-input" type="password" id="password-signup" />
-    </div>
     <div class="form-group">
       <button class="btn btn-dark" type="submit">signup</button>
     </div>
