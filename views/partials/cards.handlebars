@@ -1,4 +1,4 @@
-<div class="container py-3">
+
 
          <div class="col-md-4">
             <!--Card 1-->
@@ -6,13 +6,13 @@
                 <!--Card headers-->
                 <div class="row">
                   <div class="col-8">
-              <h4 class="d-flex card-title">  <i class="d-flex bi-person-circle"></i>{{$user_name}}</h4>
+              <h4 class="d-flex card-title">  <i class="d-flex bi-person-circle"></i>{{user_name}}</h4>
               <h6 class="d-flex card-subtitle text-muted">Placeholder bio text</h6>
                     </div>
                     <div class="col-4">                    
-              <i class="bi bi-envelope">{{$email}}</i><br>
-              <i class="bi bi-star">Favorite</i><br>
-              <i class="bi bi-github">{{$github_name}}</i>
+              <a href="mailto:{{email}}"><i class='fas fa-envelope fa-xl'></i></a><br>
+              {{!-- Favorite<br> --}}
+              <a href="http://github.com/{{github_name}}"><i class="fa-brands fa-github fa-xl"></i></a>
               </div>
                 </div>
 
@@ -27,3 +27,4 @@
                  </div>
               </div>
         </div>
+      </div>
