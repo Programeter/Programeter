@@ -22,14 +22,11 @@
   <h2 class="d-flex justify-content-center">Sign up</h2>
 
 
-{{!-- <div id="names" class="container d-flex flex-column justify-content-center p-3">
+<div id="names" class="container d-flex flex-column justify-content-center p-3">
   <form class="form-group row justify-content-center p-3">
     <div class="form-group row justify-content-center p-3">
-        <label for="email-signup">First Name:</label>
-        <input class="form-input" type="text" id="first_name" />
-        <br>
-        <label for="email-signup">Last Name:</label>
-        <input class="form-input" type="text" id="last_name" />
+        <label for="email-signup">User Name:</label>
+        <input class="form-input" type="text" id="user_name" />
     </div>
       <div class="form-group row justify-content-center p-3">
         <label for="email-signup">Email:</label>
@@ -40,7 +37,6 @@
       <div class="form-group row justify-content-center p-3">
         <label for="password-signup">Password:</label>
         <input class="form-input" type="password" id="password-signup" />
-          <br>
         <label for="password-signup">Confirm Password:</label>
         <input class="form-input" type="password" id="password-signup" />
       </div>
@@ -51,11 +47,12 @@
       </div>
   </form>
 </div>
-<br> --}}
+<br>
 
 {{#each questions as |question|}} 
 <p>
-  {{question.dataValues.text}}{{question.dataValues.options.dataValues.option}}
+  {{question.dataValues.text}}<br>
+  {{question.dataValues.options.0.dataValues.option}}
 </p>
 {{/each}}
 
