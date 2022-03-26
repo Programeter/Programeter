@@ -1,5 +1,5 @@
 const compatibilityGenerator = require('./compatibility-generator');
-const githubHandler = require('./GithubHandler');
+const githubHandler = require('./github-handler');
 const { User } = require('../models');
 
 const searchHandler = async (searchUser, languages) => {
