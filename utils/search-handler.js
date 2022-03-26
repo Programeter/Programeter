@@ -15,7 +15,7 @@ const searchHandler = async (searchUser, languages) => {
             continue;
         }
         const compatibility = await compatibilityGenerator(searchUser, users[x].dataValues.id, languages);
-        if (await compatibility.personal_compatibility > 1 && await compatibility.work_compatibility > 1 && await compatibility.language_compataibility > 1) {
+        if (compatibility.personal_compatibility && compatibility.work_compatibility && compatibility.language_compataibility) {
             possibleUsers.push(users[x]);
         }
         if (usersTried1 >= numOfUsers) {

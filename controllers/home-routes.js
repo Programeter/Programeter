@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
-const searchHandler = require('../utils/searchHandler');
+const searchHandler = require('../utils/search-handler');
 
 // import library
 const captcha = require("nodejs-captcha");
