@@ -6,21 +6,6 @@ const searchHandler = require('../utils/search-handler');
 // import library
 const captcha = require("nodejs-captcha");
 
-// Create new Captcha
-const newCaptcha = captcha();
-
-// Value of the captcha
-const value = newCaptcha.value;
-
-// Image in base64 
-const imagebase64 = newCaptcha.image;
-
-// Width of the image
-const width = newCaptcha.width;
-
-// Height of the image
-const height = newCaptcha.height;
-
 router.get('/', withAuth, async (req, res) => {
     // insert home page stuff here
   try {
@@ -105,22 +90,25 @@ router.get('/signup', async (req, res) => {
     return;
   }
   try {
-    const questions = await Question.findAll({
+    const dbQestionData = await Question.findAll({
       include: [{
           model: Option
       }]
     });
-    questions.map((question) => question.get({plain: true}));
+    const questions = dbQestionData.map((question) => question.get({plain: true}));
     
     // const questions = db_questionData.get({plain: true})
-    let result = captcha();
-    req.session.captchaVal = result.value;
-    let source = result.image;
+    // Create new Captcha
+    const newCaptcha = captcha();
+
+    const captchaData = { image: newCaptcha.image, width: ((newCaptcha.width).toString() + 'px'), height: ((newCaptcha.height).toString() + 'px') };
+
+    req.session.captchaVal = newCaptcha.value;
   
     res.render('signup', {
       loggedIn: req.session.loggedIn,
       questions: questions,
-      captcha: source
+      captcha: captchaData
     });
   } catch (err) {
     console.log(err);

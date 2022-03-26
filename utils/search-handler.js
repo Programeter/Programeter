@@ -3,7 +3,8 @@ const githubHandler = require('./github-handler');
 const { User } = require('../models');
 
 const searchHandler = async (searchUser, languages) => {
-    let users = await User.findAll();
+    let dbUserData = await User.findAll();
+    let users = dbUserData.map((user) => user.get({ plain: true }));
     let possibleUsers = [];
     const numOfUsers = users.length;
     let usersTried1 = 0;
@@ -11,17 +12,17 @@ const searchHandler = async (searchUser, languages) => {
     let repoList = [];
     for (const x in users) {
         usersTried1++;
-        if (searchUser == users[x].dataValues.id) {
+        if (searchUser == users[x].id) {
             continue;
         }
-        const compatibility = await compatibilityGenerator(searchUser, users[x].dataValues.id, languages);
+        const compatibility = await compatibilityGenerator(searchUser, users[x].id, languages);
         if (compatibility.personal_compatibility && compatibility.work_compatibility && compatibility.language_compataibility) {
             possibleUsers.push(users[x]);
         }
         if (usersTried1 >= numOfUsers) {
             for (const i in possibleUsers) {
                 usersTried2++;
-                const repos = await githubHandler.searchByLanguage(possibleUsers[i].dataValues.github_name, languages);
+                const repos = await githubHandler.searchByLanguage(possibleUsers[i].github_name, languages);
                 repoList = repoList.concat(repos);
                 if (usersTried2 >= possibleUsers.length) {
                     // console.log(repoList);
