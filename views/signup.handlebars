@@ -53,10 +53,10 @@
 <br>
 
 <section class="container">
-  <p class="question">{{question.text}}</p>
+  <p class="question">{{questions.text}}</p>
   <section class="flex-row justify-center">
-    {{#each question.text}}
-    {{> option.option}}
+    {{#each questions.text}}
+    {{> options.option}}
     {{/each}}
   </section>
 </section>
