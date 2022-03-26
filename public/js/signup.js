@@ -1,6 +1,8 @@
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
+    const captchaValue = document.querySelector('#captcha_input').value.trim();
+    
     const user_name = document.querySelector('#user_name').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();

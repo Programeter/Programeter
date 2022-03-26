@@ -28,23 +28,6 @@
         <label for="email-signup" class="text-center">User Name:</label>
         <input class="form-input text-center" type="text" id="user_name" />
     </div>
-<<<<<<< HEAD
-    <div class="form-group row justify-content-center p-3">
-      <label for="email-signup">Email:</label>
-      <input class="form-input" type="text" id="email-signup" />
-      <label for="email-signup">Confirm Email:</label>
-      <input class="form-input" type="text" id="email-signup" />
-    </div>
-    <div class="form-group row justify-content-center p-3">
-      <label for="password-signup">Password:</label>
-      <input class="form-input" type="password" id="password-signup" />
-      <label for="password-signup">Confirm Password:</label>
-      <input class="form-input" type="password" id="password-signup" />
-    </div>
-    <div class="form-group row justify-content-center p-3">
-      <label for="password-signup">Coding Skills:</label>
-      <input class="form-input" type="text" id="coding_skills" placeholder="Type to Search..." />
-=======
       <div class="form-group row justify-content-center p-3">
         <label for="email-signup" class="text-center">Email:</label>
         <input class="form-input text-center" type="text" id="email-signup" />
@@ -64,39 +47,30 @@
       <div class="form-group row justify-content-center p-3">
         <label for="password-signup" class="text-center">What languages do you know?:</label>
         <input class="form-input text-center" type="text" id="languages" placeholder="Type to Search..." />
->>>>>>> c67c6cd03124632706557f870e4f3a54da5c7748
 
     </div>
     <div class="form-group row justify-content-center p-3">
       <div>
         <img src={{captcha.image}} width={{captcha.width}} height={{captcha.height}}>
       </div>
-<<<<<<< HEAD
       <label for="captcha-input">What does the Captcha Say?</label>
       <input class="form-input" type="text" id="captcha_input"/>
     </div>
   </form>
-=======
->>>>>>> c67c6cd03124632706557f870e4f3a54da5c7748
 </div>
 <br>
 
 {{#each questions as |question|}} 
 <div class="container d-flex flex-column justify-content-center p-3 text-center">
 <p>
-<<<<<<< HEAD
   {{question.text}}<br>
-  {{question.options.0.option}}
-=======
-  {{question.dataValues.text}}<br>
 <select id="values" class="text-center">
-  <option value="1">{{question.dataValues.options.0.dataValues.option}}</option>
-  <option value="2">{{question.dataValues.options.1.dataValues.option}}</option>
-  <option value="3">{{question.dataValues.options.2.dataValues.option}}</option>
-  <option value="4">{{question.dataValues.options.3.dataValues.option}}</option>
-  <option value="5">{{question.dataValues.options.4.dataValues.option}}</option>
+  <option value="1">{{question.options.0.option}}</option>
+  <option value="2">{{question.options.1.option}}</option>
+  <option value="3">{{question.options.2.option}}</option>
+  <option value="4">{{question.options.3.option}}</option>
+  <option value="5">{{question.options.4.option}}</option>
 </select>
->>>>>>> c67c6cd03124632706557f870e4f3a54da5c7748
 </p>
 </div>
 {{/each}}

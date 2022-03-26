@@ -59,9 +59,9 @@ router.get('/search', async (req, res) => {
 router.get('/verify-captcha', (req, res) => {
   let captcha = req.query.captcha;
   if (req.session.captchaVal === captcha) {
-    res.send({message: 'verified'});
+    res.satus(200).send({message: 'verified'});
   } else {
-    res.send({message: 'Not Verified'});
+    res.status(400).send({message: 'Not Verified'});
   }
 });
   
