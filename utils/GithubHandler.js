@@ -42,11 +42,20 @@ const searchByLanguage = async (user, languageList) => {
         const languages = await getLanguages(user, repo.name);
         languages.forEach((language) => {
             if (languageList.find(listLanguage => listLanguage == language) != undefined && repoList.findIndex(listRepo => listRepo.id == repo.id) == -1) {
-                repoList.push(repo);
+                const repoInfo = {
+                    repo_name: repo.name,
+                    user: user,
+                    description: repo.description,
+                    url: repo.html_url,
+                    languages: languages,
+                    created_at: repo.created_at,
+                    updated_at: repo.updated_at
+                };
+                repoList.push(repoInfo);
                 return;
             }
             if (reposCycled >= numberOfRepos) {
-                console.log(repoList);
+                // console.log(repoList);
                 return repoList;
             }
         });
@@ -55,6 +64,6 @@ const searchByLanguage = async (user, languageList) => {
 
 // getRepos('SlaterMcArdle');
 // getLanguages('SlaterMcArdle','Work_Day_Scheduler');
-searchByLanguage('SlaterMcArdle', ['JavaScript', 'HTML']);
+// searchByLanguage('SlaterMcArdle', ['JavaScript', 'HTML']);
 
 module.exports = { getRepos, getLanguages, searchByLanguage };
