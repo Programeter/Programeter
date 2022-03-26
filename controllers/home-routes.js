@@ -24,9 +24,15 @@ const height = newCaptcha.height;
 router.get('/', withAuth, async (req, res) => {
     // insert home page stuff here
   try {
+    const userData = await User.findAll();
+    const users = userData.map((user)=>
+    user.get({plain:true})
+    );
     res.render('dashboard', {
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      users: users
     });
+    
   } catch (err){
     console.log(err);
     res.status(500).json(err);
@@ -99,7 +105,8 @@ router.get('/login', (req, res) => {
     res.render('loginpage');
   });
 
-router.get('/signup', async (req, res) => {
+
+  router.get('/signup', async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
