@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User, Question, Option } = require('../models');
 const withAuth = require('../utils/auth');
 const searchHandler = require('../utils/search-handler');
-const seed = require('../seeds/seed');
 
 // import library
 const captcha = require("nodejs-captcha");
@@ -10,7 +9,6 @@ const captcha = require("nodejs-captcha");
 router.get('/', async (req, res) => {
     // insert home page stuff here
   try {
-    await seed();
     const userData = await User.findAll();
     const users = userData.map((user)=>
     user.get({plain:true})
