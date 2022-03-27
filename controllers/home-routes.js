@@ -6,7 +6,7 @@ const searchHandler = require('../utils/search-handler');
 // import library
 const captcha = require("nodejs-captcha");
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     // insert home page stuff here
   try {
     const userData = await User.findAll();
