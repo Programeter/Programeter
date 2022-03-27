@@ -7,32 +7,40 @@ const optionData = require('./optionsData.json');
 const languageData = require('./languageData.json');
 
 const seedDatabase = async () => {
-  let users;
-  let questions;
-  let options;
-  let languages;
+  let users = [];
+  let questions = [];
+  let options = [];
+  let languages = [];
 
   await sequelize.sync();
 
-  users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for(const i in userData) { const user = await User.create(userData[i], {
+      individualHooks: true,
+      returning: true,
+    });
+    users.push(user);
+  }
  
-  questions = await Question.bulkCreate(questionData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const i in questionData) { const question = await Question.create(questionData[i], {
+      individualHooks: true,
+      returning: true,
+    });
+    questions.push(question);
+  }
   
-  options = await Option.bulkCreate(optionData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const i in optionData) { const option = await Option.create(optionData[i], {
+      individualHooks: true,
+      returning: true,
+    });
+    options.push(option);
+  }
   
-  languages = await Language.bulkCreate(languageData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const i in languageData) { const language =  await Language.create(languageData[i], {
+      individualHooks: true,
+      returning: true,
+    });
+    languages.push(language);
+  }
 
   // generate random answers and languages for each user
   for (const user of users) {
