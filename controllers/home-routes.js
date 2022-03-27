@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Question, Option } = require('../models');
+const { User, Question, Option, Language } = require('../models');
 const withAuth = require('../utils/auth');
 const searchHandler = require('../utils/search-handler');
 
@@ -25,33 +25,6 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/search', async (req, res) => {
-  // let users = await User.findAll();
-  // let possibleUsers = [];
-  // const numOfUsers = users.length;
-  // let usersTried1 = 0;
-  // let usersTried2 = 0;
-  // let repoList = [];
-  // for (const user in users) {
-  //     usersTried1++;
-  //     if (1 == users[user].dataValues.id) {
-  //         continue;
-  //     }
-  //     const compatibility = await compatibilityGenerator(1, users[user].dataValues.id, req.body.languages);
-  //     if (await compatibility.personal_compatibility > 1 && await compatibility.work_compatibility > 1 && await compatibility.language_compataibility > 1) {
-  //         possibleUsers.push(users[user]);
-  //     }
-  //     if (usersTried1 >= numOfUsers) {
-  //         for (const possibleUser in possibleUsers) {
-  //             usersTried2++;
-  //             const repos = await githubHandler.searchByLanguage(possibleUsers[possibleUser].dataValues.github_name, req.body.languages);
-  //             repoList = repoList.concat(repos);
-  //             if (usersTried2 >= possibleUsers.length) {
-  //                 // console.log(repoList);
-  //                 res.status(200).send(repoList);
-  //             }
-  //         }
-  //     }
-  // }
   const searchResults = await searchHandler(1, req.body.languages);
   res.status(200).json(searchResults);
 });
@@ -104,6 +77,9 @@ router.get('/login', (req, res) => {
     });
     const questions = dbQestionData.map((question) => question.get({plain: true}));
     
+    const dbLanguageData = await Language.findAll();
+
+    const languages = dbLanguageData.map((language) => language.get({ plain: true }));
     // const questions = db_questionData.get({plain: true})
     // Create new Captcha
     const newCaptcha = captcha();
@@ -115,6 +91,7 @@ router.get('/login', (req, res) => {
     res.render('signup', {
       loggedIn: req.session.loggedIn,
       questions: questions,
+      languages: languages,
       captcha: captchaData
     });
   } catch (err) {

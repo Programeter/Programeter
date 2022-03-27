@@ -1,0 +1,10 @@
+<div class="container d-flex flex-column justify-content-center p-3 text-center">
+<p>
+  {{text}}<br>
+<select id={{question_name}} name="answer" class="signup-select text-center">
+  {{#each options as |option|}}
+    <option value={{option.id}}>{{option.option}}</option>
+  {{/each}}
+</select>
+</p>
+</div>

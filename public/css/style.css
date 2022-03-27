@@ -77,6 +77,8 @@ body {
 }
 .logo {
   float: left;
+  height: 3rem;
+  width: 3rem;
 }
 
 .form-input {
