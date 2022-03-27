@@ -2,7 +2,7 @@ const sequelize = require('../config/connection');
 const { User, Question, Option, Language, UserAnswer, LanguageLink } = require('../models');
 
 const userData = require('./userData.json');
-const questionData = require('./QuestionData.json');
+const questionData = require('./questionData.json');
 const optionData = require('./optionsData.json');
 const languageData = require('./languageData.json');
 
