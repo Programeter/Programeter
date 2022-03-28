@@ -5,6 +5,6 @@ const passwordinput = document.getElementsByClassName('password-form')[0]
 
 
 
-toggleButton.addEventListener('click', () => {
-  navbarLinks.classList.toggle('active')
-})
+// toggleButton.addEventListener('click', () => {
+//   navbarLinks.classList.toggle('active')
+// })

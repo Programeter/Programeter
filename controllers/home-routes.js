@@ -24,15 +24,15 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
   const searchResults = await searchHandler(1, req.body.languages);
   res.status(200).json(searchResults);
 });
 
-router.get('/verify-captcha', (req, res) => {
-  let captcha = req.query.captcha;
+router.post('/verify-captcha', (req, res) => {
+  let captcha = req.body.captcha;
   if (req.session.captchaVal === captcha) {
-    res.satus(200).send({message: 'verified'});
+    res.status(200).send({message: 'verified'});
   } else {
     res.status(400).send({message: 'Not Verified'});
   }
@@ -89,6 +89,7 @@ router.get('/login', (req, res) => {
     req.session.captchaVal = newCaptcha.value;
   
     res.render('signup', {
+      layout: 'main',
       loggedIn: req.session.loggedIn,
       questions: questions,
       languages: languages,
