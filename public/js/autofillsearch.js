@@ -25,11 +25,11 @@ inputBox.onkeyup = async (e)=>{
     let userData = e.target.value; //user entered data
     let emptyArray = [];
     if(userData){
-        icon.onclick = () =>{
-            webLink = `https://www.google.com/search?q=${userData}`;
-            linkTag.setAttribute("href", webLink);
-            linkTag.click();
-        };
+        // icon.onclick = () =>{
+        //     webLink = `https://www.google.com/search?q=${userData}`;
+        //     linkTag.setAttribute("href", webLink);
+        //     linkTag.click();
+        // };
         emptyArray = suggestions.filter((data)=>{
             //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -66,11 +66,11 @@ function select(element){
     selBox.classList.add("p-3");
     selBox.innerHTML += `<p class="selected-language ml-3">${selectData}</p>`;
     inputBox.value = null;
-    icon.onclick = ()=>{
-        webLink = `https://www.google.com/search?q=${selectData}`;
-        linkTag.setAttribute("href", webLink);
-        linkTag.click();
-    }
+    // icon.onclick = ()=>{
+    //     webLink = `https://www.google.com/search?q=${selectData}`;
+    //     linkTag.setAttribute("href", webLink);
+    //     linkTag.click();
+    // }
     searchWrapper.classList.remove("active");
 }
 
@@ -80,7 +80,7 @@ async function searchByLanguages() {
     for (let i = 0; i < languageElements.length; i++) {
         searchArray.push(languageElements[i].innerHTML);
     }
-    const response = await fetch('http://localhost:3001/search', {
+    const response = await fetch('/search', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
