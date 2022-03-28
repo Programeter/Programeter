@@ -1,9 +1,9 @@
-<div class="container d-flex flex-column justify-content-center p-3 text-center">
+<div class="container d-flex flex-column justify-content-center py-1 text-center">
 <p>
   {{text}}<br>
-<select id={{question_name}} name="answer" class="signup-select text-center">
+<select id={{question_name}} name="answer" class=" form-control signup-select text-center">
   {{#each options as |option|}}
-    <option value={{option.id}}>{{option.option}}</option>
+    <option value={{option.id}} class="form-control">{{option.option}}</option>
   {{/each}}
 </select>
 </p>

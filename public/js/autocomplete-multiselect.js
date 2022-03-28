@@ -9,12 +9,12 @@ $.widget("ui.autocomplete", $.ui.autocomplete, {
             o = self.options;
 
         if (o.multiselect) {
-            console.log('multiselect true');
+            // console.log('multiselect true');
 
             self.selectedItems = {};           
             self.multiselect = $("<div></div>")
-                .addClass("ui-autocomplete-multiselect ui-state-default ui-widget")
-                .css("width", self.element.width())
+                .addClass("ui-autocomplete-multiselect ui-state-default ui-widget p-0")
+                // .css("width", self.element.width())
                 .insertBefore(self.element)
                 .append(self.element)
                 .bind("click.autocomplete", function(){
@@ -48,7 +48,7 @@ $.widget("ui.autocomplete", $.ui.autocomplete, {
                     .text(ui.item.label)
                     .append(
                         $("<span></span>")
-                            .addClass("ui-icon ui-icon-close")
+                            .addClass("ui-icon ui-icon-close d-inline-block")
                             .click(function(){
                                 var item = $(this).parent();
                                 delete self.selectedItems[item.text()];

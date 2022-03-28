@@ -1,11 +1,12 @@
-var searchInput = document.getElementById('searchbar');
-var searchBtn = document.getElementById('searchBtn');
-var searchArray = [];
+const searchInput = document.getElementById('searchbar');
+const searchBtn = document.getElementById('searchBtn');
+const searchArray = [];
 
-searchBtn.addEventListener("click", ()=> {
+searchBtn.addEventListener("click", (e)=> {
+    e.preventDefault();
     searchArray.push(searchInput.value)
     setCookie("search cookie", searchArray, 3000)
-})
+});
 
 
 function setCookie(name,value,exp_days) {
