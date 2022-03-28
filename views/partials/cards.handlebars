@@ -20,9 +20,9 @@
                  <div class="col-5">
                     <a href="#" class="card-link">Strengths:</a>
                         <ul class="langlist">
-                            <li>Language</li>
-                            <li>Language</li>
-                            <li>Language</li>
+                          {{#each user_languages as |language|}}
+                            <li>{{language.language_name}}</li>
+                          {{/each}}
                         </ul>
                  </div>
               </div>

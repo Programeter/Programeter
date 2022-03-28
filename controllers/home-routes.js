@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Question, Option, Language } = require('../models');
+const { User, Question, Option, Language, LanguageLink } = require('../models');
 const withAuth = require('../utils/auth');
 const searchHandler = require('../utils/search-handler');
 
@@ -9,7 +9,11 @@ const captcha = require("nodejs-captcha");
 router.get('/', withAuth, async (req, res) => {
     // insert home page stuff here
   try {
-    const userData = await User.findAll();
+    const userData = await User.findAll({include: [{
+      model: Language,
+      through: LanguageLink,
+      as: 'user_languages'
+    }]});
     const users = userData.map((user)=>
     user.get({plain:true})
     );
