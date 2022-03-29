@@ -131,7 +131,7 @@ router.get('/user/:id', withAuth, async (req, res) => {
     const userData = req.session.searchResults.find((user) => user.user.id == req.params.id);
     if (userData != undefined) {
       res.render('userprofile', {
-        loggedIn: res.session.loggedIn,
+        loggedIn: req.session.loggedIn,
         user: userData
       });
       return;
@@ -147,14 +147,12 @@ router.get('/user/:id', withAuth, async (req, res) => {
       repos: repos
     };
 
-    res.render('user', { user: user, loggedIn: req.session.loggedIn });
+    res.render('userprofile', { user: user, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
