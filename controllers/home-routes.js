@@ -6,7 +6,7 @@ const searchHandler = require('../utils/search-handler');
 // import library
 const captcha = require("nodejs-captcha");
 const generateCompatibility = require('../utils/compatibility-generator');
-const { getRepos, getLanguages } = require('../utils/github-handler');
+const { getRepos, getLanguages, searchByLanguage } = require('../utils/github-handler');
 
 router.get('/', withAuth, async (req, res) => {
   if (req.query.users) {
@@ -154,15 +154,11 @@ try {
     });
     const languages = searchingUserData.user_languages.map((language) => {return language.dataValues.language_name;});
     const userInfo = userData.get({ plain: true });
-    const repos = await getRepos(userInfo.github_name);
-    const repoList = [];
-    for (let i = 0; i < repos.length; i++) {
-      const repo = await getLanguages(userData.github_name, languages);
-      repoList.push(repo);
-    }
+    const repos = await searchByLanguage(userInfo.github_name, languages);
+    
     const user_Data = {
       user: userInfo,
-      repos: repoList
+      repos: repos
     };
     const user = {
       user: user_Data,
