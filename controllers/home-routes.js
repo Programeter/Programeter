@@ -172,5 +172,14 @@ router.get('/login', (req, res) => {
 //   });
 });
 
+router.get('/resume', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('resume');
+});
+
 
 module.exports = router;
