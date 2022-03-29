@@ -5,6 +5,7 @@ const searchHandler = require('../utils/search-handler');
 
 // import library
 const captcha = require("nodejs-captcha");
+const generateCompatibility = require('../utils/compatibility-generator');
 
 router.get('/', withAuth, async (req, res) => {
     // insert home page stuff here
@@ -14,9 +15,25 @@ router.get('/', withAuth, async (req, res) => {
       through: LanguageLink,
       as: 'user_languages'
     }]});
-    const users = userData.map((user)=>
+    const usersInfo = userData.map((user)=>
     user.get({plain:true})
     );
+    const users = [];
+    for (let i = 0; i < usersInfo.length; i++) {
+      const languages = usersInfo[i].user_languages.map((language) => { return language.language_name; });
+      const compatibility = await generateCompatibility(req.session.user.id, usersInfo[i].id, languages);
+      const userObject = {
+        id: usersInfo[i].id,
+        email: usersInfo[i].email,
+        user_name: usersInfo[i].user_name,
+        github_name: usersInfo[i].github_name,
+        user_languages: usersInfo[i].user_languages,
+        personal_compatibility: compatibility.personal_compatibility,
+        work_compatibility: compatibility.work_compatibility,
+        language_compatibility: compatibility.language_compataibility
+      };
+      users.push(userObject);
+    }
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
       users: users
