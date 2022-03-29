@@ -66,11 +66,24 @@ router.post('/search', async (req, res) => {
         };
         users.push(userObject); 
       }
-    // res.status(200).send({message: 'ok'});
-    res.render('searchresults');
+    // res.status(200).write('ok');
+    res.status(200).json(users);
+    // res.redirect('/searchresults?users='+JSON.stringify(users));
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+router.get('/searchresults', async (req, res) => {
+  try {
+    const resultData = JSON.parse(req.query.users);
+    res.render('searchresults', {
+      users: resultData
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).jeons(err);
   }
 });
 

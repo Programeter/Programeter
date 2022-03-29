@@ -79,6 +79,17 @@ async function searchByLanguages() {
     for (let i = 0; i < languageElements.length; i++) {
         searchArray.push(languageElements[i].innerHTML);
     }
+    // $.ajax({
+    //     type: 'post',
+    //     url: '/search',
+    //     data : {
+    //         languages: searchArray
+    //     }
+    //     // error: function(err) {
+    //     //     console.log('------------ Error while updating this resident: ' + err);
+    //     //     console.log('------------ Error while updating this resident: ' + err.message);
+    //     // }
+    // });
     const response = await fetch('/search', {
         method: 'POST',
         headers: {
@@ -88,8 +99,10 @@ async function searchByLanguages() {
             languages: searchArray
         }),
     });
+    
     const result = await response.json();
-    console.log(result);
+    window.location.href = '/searchresults?users=' + JSON.stringify(result);
+    console.log('success');
 } 
 
 searchBtn.addEventListener("click", (e)=> {
