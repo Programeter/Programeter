@@ -34,6 +34,7 @@
       
     <div class="navbar-links">
       <ul>
+        <li><a  id="logout">Log Out</a></li>
         <li><a href="#">My Profile</a></li>
         <li><a href="#">My Favorites</a></li>
         <li><a href="#">My Resume</a></li>
@@ -41,12 +42,14 @@
     </div>
 {{/if}}
     </nav>
-<main>
+<main class="bg-dark">
   {{{body}}}
 
 </main>
 
 <script src="/js/navbar.js"></script>
-
+{{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+{{/if}}
 </body>
 </html>
