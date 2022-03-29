@@ -14,6 +14,15 @@ body {
   color: grey;
 }
 
+.mail {
+  position: relative;
+  z-index: 100;
+}
+
+.github{
+  position: relative;
+  z-index: 110;
+}
 /* button style */
 .switch {
   position: relative;
