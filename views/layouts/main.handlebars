@@ -29,9 +29,6 @@
       <span class="slider round"></span>
     </label>
 {{#if loggedIn}}
-       {{!-- <a href="#" class="toggle-button">
-        <i class="fas fa-bars fa-1x"></i>
-      </a> --}}
       <button class="toggle-button navbar-toggler toggler-example text-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
     aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
         class="fas fa-bars fa-1x"></i></span></button>
@@ -41,12 +38,11 @@
         <li><a  id="logout">Log Out</a></li>
         <li><a href="#">My Profile</a></li>
         <li><a href="#">My Favorites</a></li>
-        <li><a href="#">My Resume</a></li>
+        <li><a href="/resume">My Resume</a></li>
       </ul>
     </div>
 {{/if}}
     </nav>
-{{!-- <main class="bg-dark"> --}}
   {{{body}}}
 
 </main>

@@ -1,13 +1,4 @@
-  <h2 class="d-flex justify-content-center">Dashboard</h2><br>
-  <!--Search bar-->
-  <!-- <form class="d-flex justify-content-center"id="searchbar"> 
-    <div class="input-group mb-1" >
-        <div class="mx-3">
-        </div>
-        <input type="text" class="search-form" placeholder="Start typing technologies">
-      </div>
-      <button type="button" class="btn btn-dark me-3">Search!</button>
-    </form> -->
+<h2 class="d-flex justify-content-center">Dashboard</h2><br>
     <div class="wrapper">
       <div class="search-input">
         <a href="" target="_blank" hidden></a>
@@ -23,15 +14,16 @@
       </div>
     </div>
 
-<div class="card-group">
-{{#each users as |user|}}
-{{>cards}}
-{{/each}}
+<div class="container-fluid">
+  <div class="row">
+    {{#each users as |user|}}
+    {{>cards}}
+    {{/each}}
+  </div>
 </div>
 
 </body>
 <script src="/js/autofillsearch.js"></script>
-{{!-- <script src="/js/searchcookie.js"></script> --}}
 
 </html>
 

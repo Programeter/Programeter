@@ -22,7 +22,7 @@ body {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -36,8 +36,8 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -48,16 +48,16 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -77,7 +77,6 @@ input:checked + .slider:before {
 /* button style */
 
 .navbar {
-
   /* display: flex;
   position: relative; 
   justify-content: space-between; */
@@ -87,8 +86,9 @@ input:checked + .slider:before {
 }
 
 .brand-title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   margin: 0.5rem;
+  color: #1ee9eb;
 }
 
 .navbar-links {
@@ -110,6 +110,7 @@ input:checked + .slider:before {
   text-decoration: none;
   color: white;
   padding: 1rem;
+  font-size: 1.2rem;
 }
 
 .navbar-links li:hover {
@@ -117,12 +118,11 @@ input:checked + .slider:before {
 }
 
 .toggle-button {
-
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 3rem;
-    height: 2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 3rem;
+  height: 2rem;
 }
 
 .toggle-button .bar {
@@ -141,9 +141,9 @@ input:checked + .slider:before {
 .search-form {
   width: 80%;
 }
-.langlist {
+/* .langlist {
   list-style-position: inside;
-}
+} */
 .logo {
   float: left;
   height: 2.5rem;
@@ -157,59 +157,56 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 800px) {
+  .navbar {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 
-    .navbar {
-        flex-direction: row;
-        align-items: flex-start;
-    }
+  .toggle-button {
+    display: flex;
+  }
 
-    .toggle-button {
-        display: flex;
-    }
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
 
-    .navbar-links {
-        display: none;
-        width: 100%;
-    }
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
 
-    .navbar-links ul {
-        width: 100%;
-        flex-direction: column;
-    }
+  .navbar-links ul li {
+    text-align: center;
+  }
 
-    .navbar-links ul li {
-        text-align: center;
-    }
+  .navbar-links ul li a {
+    padding: 0.5rem 1rem;
+  }
 
-    .navbar-links ul li a {
-        padding: .5rem 1rem;
-    }
-
-    .navbar-links.active {
-        display: flex;
-    }
-
-
+  .navbar-links.active {
+    display: flex;
+  }
 }
 
 /* Below is for search bar */
 
-::selection{
+::selection {
   color: #fff;
-  background: #664AFF;
+  background: #664aff;
 }
-.wrapper{
+.wrapper {
   max-width: 450px;
   margin: 4rem auto;
 }
-.wrapper .search-input{
+.wrapper .search-input {
   background: #fff;
   width: 100%;
   border-radius: 5px;
   position: relative;
-  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
 }
-.search-input input{
+.search-input input {
   height: 55px;
   width: 100%;
   outline: none;
@@ -217,24 +214,24 @@ input:checked + .slider:before {
   border-radius: 5px;
   padding: 0 60px 0 20px;
   font-size: 18px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
-.search-input.active input{
+.search-input.active input {
   border-radius: 5px 5px 0 0;
 }
-.search-input .autocom-box{
+.search-input .autocom-box {
   padding: 0;
   opacity: 0;
   pointer-events: none;
   max-height: 280px;
   overflow-y: auto;
 }
-.search-input.active .autocom-box{
+.search-input.active .autocom-box {
   padding: 10px 8px;
   opacity: 1;
   pointer-events: auto;
 }
-.autocom-box li{
+.autocom-box li {
   list-style: none;
   padding: 8px 12px;
   display: none;
@@ -242,13 +239,13 @@ input:checked + .slider:before {
   cursor: default;
   border-radius: 3px;
 }
-.search-input.active .autocom-box li{
+.search-input.active .autocom-box li {
   display: block;
 }
-.autocom-box li:hover{
+.autocom-box li:hover {
   background: #efefef;
 }
-.search-input .icon{
+.search-input .icon {
   position: absolute;
   right: 0px;
   top: 0px;
@@ -259,4 +256,13 @@ input:checked + .slider:before {
   font-size: 20px;
   color: #644bff;
   cursor: pointer;
+}
+.card .mx-auto {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.make-bigger:hover {
+  transform: translate3D(0, -1px, 0) scale(1.1);
 }
