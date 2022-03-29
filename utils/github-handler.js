@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 require('dotenv').config();
 
+// search github for the first 5 repos from a particular user
 const getRepos = async (user) => {
     const url = `https://api.github.com/users/${user}/repos?per_page=5`;
     const response = await fetch(url, {
@@ -15,6 +16,7 @@ const getRepos = async (user) => {
     return repos;
 };
 
+// get the languages that a particular user's repo contains
 const getLanguages = async (user, repoName) => {
     const url = `https://api.github.com/repos/${user}/${repoName}/languages`; 
     const response = await fetch(url, {
@@ -30,7 +32,7 @@ const getLanguages = async (user, repoName) => {
     return languages;
 };
 
-// generates a list of repositories from a user that use  the queried languages
+// generates a list of repositories from a user that use the queried languages
 const searchByLanguage = async (user, languageList) => {
     let repoList = [];
     let numberOfRepos = 0;
