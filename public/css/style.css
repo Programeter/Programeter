@@ -166,6 +166,16 @@ input:checked + .slider:before {
   margin: 0.2rem;
 }
 
+.repo-languages {
+  margin: 0;
+  padding: 0;
+}
+
+.repo-language {
+  margin-left: 1rem;
+  list-style: none;
+}
+
 @media (max-width: 800px) {
   .navbar {
     flex-direction: row;

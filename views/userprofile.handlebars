@@ -1,1 +1,29 @@
-<h2>{{user.user.user_name}}</h2>
+<div class="jumbotron bg-dark text-white row my-3 mx-0 p-3">
+  <div class="col-7 row">
+    <div class="col-8 d-inline">
+        <h1 class="display-5">{{user.user.user_name}}</h1>
+    </div>
+    <div class="col-4">
+        <a href="http://github.com/{{user.user.github_name}}"><i class="fa-brands fa-github fa-lg github"></i></a>
+        <a href="mailto:{{user.user.email}}"><i class='fas fa-envelope fa-lg mail'></i></a>
+    </div>
+  </div>
+  <div class="col-5">
+      <h4>
+          Known Languages:
+      </h4>
+      <ul>
+        {{#each languages as |language|}}
+            <li>{{language}}</li>
+        {{/each}}
+      </ul>
+  </div>
+</div>
+<div class="container-fluid d-flex flex-row flex-wrap align-items-stretch"></div>
+    <div class="row w-100 justify-content-center m-0">
+        {{#each user.repos as |repo|}}
+            {{>repo-cards}}
+        {{/each}}
+    </div>
+</div>
+
