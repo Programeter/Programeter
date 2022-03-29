@@ -22,5 +22,77 @@
     "github_name": "rubbertoe64",
     "password": "password147",
     "email": "fake@icloud.com"
+  },
+  {
+    "user_name": "Trent Tkachuk",
+    "github_name": "Tkachuk94",
+    "password": "password123",
+    "email": "asdf@gmail.com"
+  },
+  {
+    "user_name": "Slater McArdle",
+    "github_name": "SlaterMcArdle",
+    "password": "password456",
+    "email": "asdf@yahoo.com"
+  },
+  {
+    "user_name": "Miguel Torre",
+    "github_name": "errotleugim",
+    "password": "password789",
+    "email": "asdf@hotmail.com"
+  },
+  {
+    "user_name": "Roberto Gonzalez",
+    "github_name": "rubbertoe64",
+    "password": "password147",
+    "email": "asdf@icloud.com"
+  },
+  {
+    "user_name": "Trent Tkachuk",
+    "github_name": "Tkachuk94",
+    "password": "password123",
+    "email": "zxcv@gmail.com"
+  },
+  {
+    "user_name": "Slater McArdle",
+    "github_name": "SlaterMcArdle",
+    "password": "password456",
+    "email": "zxcv@yahoo.com"
+  },
+  {
+    "user_name": "Miguel Torre",
+    "github_name": "errotleugim",
+    "password": "password789",
+    "email": "zxcv@hotmail.com"
+  },
+  {
+    "user_name": "Roberto Gonzalez",
+    "github_name": "rubbertoe64",
+    "password": "password147",
+    "email": "zxcv@icloud.com"
+  },
+  {
+    "user_name": "Trent Tkachuk",
+    "github_name": "Tkachuk94",
+    "password": "password123",
+    "email": "qwer@gmail.com"
+  },
+  {
+    "user_name": "Slater McArdle",
+    "github_name": "SlaterMcArdle",
+    "password": "password456",
+    "email": "qwer@yahoo.com"
+  },
+  {
+    "user_name": "Miguel Torre",
+    "github_name": "errotleugim",
+    "password": "password789",
+    "email": "qwer@hotmail.com"
+  },
+  {
+    "user_name": "Roberto Gonzalez",
+    "github_name": "rubbertoe64",
+    "password": "password147",
+    "email": "qwer@icloud.com"
   }
 ]
