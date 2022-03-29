@@ -23,49 +23,6 @@ Question.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    
-    // tabsOrSpaces: {
-    //   type: DataTypes.STRING,
-    // },
-    // codeTest: {
-    //   type: DataTypes.STRING,
-    // },
-    // howMuchComment: {
-    //     type: DataTypes.STRING,
-    // },
-    // timeOfDay: {
-    //     type: DataTypes.STRING,
-    // },
-    // preferedCriticism: {
-    //     type: DataTypes.STRING,
-    // },
-    // music: {
-    //     type: DataTypes.STRING,
-    // },
-    // coffeeOrTea: {
-    //     type: DataTypes.STRING,
-    // },
-    // IntroOrExtro: {
-    //     type: DataTypes.STRING,
-    // },
-    // catsOrDogs: {
-    //     type: DataTypes.STRING,
-    // },
-    // lookingForInBusiness: {
-    //     type: DataTypes.STRING,
-    // },
-    // languagesKnown: {
-    //     type: DataTypes.STRING,
-    // },
-    // collaborativeEnvironment: {
-    //     type: DataTypes.STRING,
-    // },
-    // workedPreviously: {
-    //     type: DataTypes.STRING,
-    // },
-    // mainOS: {
-    //     type: DataTypes.STRING,
-    // },
   },
   {
     sequelize,

@@ -5,9 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/de407c37fd.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
 	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -18,7 +26,8 @@
 
 </head>
 <body>
-
+  
+<!--Nav start -->
   <nav class="navbar d-flex flex-row align-items-center">
     <div class="logo-container">
       <svg class="logo col-3" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.07 81.06"><defs><style>.cls-1{fill:#1ee9eb;isolation:isolate;}</style></defs><path class="cls-1" d="M11.86,34.57c58.91-31,87.35,55.13,29.83,45.77a75.71,75.71,0,0,0-10-3.32c-5.52-1.4-6.65-1-9.26-2.51-3.59-2.06-3.43-4-8.11-7.66-3.44-2.73-4.11-2.18-6.51-4.11-4.2-3.38-8.24-10-7.2-16.06S7.41,36.91,11.86,34.57ZM27.63,57.2c9.24,7.15,11.64,10.33,18.69,9.42C41.68,60,36.21,42.22,28.83,38.17,22.55,34.43,11,36.4,9.63,41.25,11.9,47.5,21.43,51.34,27.63,57.2Zm7.6-18.8c3.69,3.65,4.37,7.56,5.6,7.31,1-.21.37-2.77,2.18-5.94,2-3.51,4.8-3.92,4.57-5.26-1.22-3.07-17.77-3.45-19.32-1.26C28.05,34.36,31.64,34.83,35.23,38.4ZM4.72,51.88c.27.18.6.2,3.43-.8,5.26-2,3.12-1.13.11-4.34C6.81,45.19,6.59,44.15,6,44.22,4.62,44.92,3.48,51,4.72,51.88Zm13.94,12c4.77,1.41,5,.41,7.89,1.6,4.36,1.83,7.23,5.63,7.77,5.14A2.21,2.21,0,0,1,34.9,69a2.25,2.25,0,0,1,1.36-.69c.39-.93-4.69-3.6-9.48-6.74-5.6-3.83-12.29-8.79-18.52-6.52C8.73,59.38,11.9,61.53,18.66,63.88ZM53.41,74.74c4.52-3.68,8-6.6.91-3.89-5.88,1-14-1.31-17.26,2.63C40.29,78,48.92,79.27,53.41,74.74ZM47.35,41c-1.83,2.31-2.12,4.85-2.4,7.32a19.84,19.84,0,0,0,1.14,9.6c.92,2.36,3.11,8,7.43,8.68,2.49.38,4.59-1.08,7.31-3,2.24-1.55,4.52-3.13,5.72-6.17,1.65-4.18.08-8.12-.46-9.48a16.27,16.27,0,0,0-4.91-6.52,32.27,32.27,0,0,0-8.69-4.8h0A45.67,45.67,0,0,0,47.35,41ZM68.83,60.68c-.81-.17-1.44,3.47-4.57,8.12S58,75.34,58.43,75.88C62.62,76.76,72.58,66.32,68.83,60.68ZM24.68,71.46c2.3,1.11,5.14,1.67,5.37,1.14s-2-2-3.89-2.85c-2.12-1-4.8-1.54-5-1S22.94,70.63,24.68,71.46Z"/><circle class="cls-1" cx="6.82" cy="14.24" r="3.06"/><circle class="cls-1" cx="28.67" cy="18.2" r="2.32"/><circle class="cls-1" cx="69.21" cy="34.14" r="2.71"/><circle class="cls-1" cx="4.21" cy="73.83" r="4.21"/><circle class="cls-1" cx="51.64" cy="2.71" r="2.71"/></svg>
@@ -38,7 +47,7 @@
         <li><a  id="logout">Log Out</a></li>
         <li><a href="#">My Profile</a></li>
         <li><a href="#">My Favorites</a></li>
-        <li><a href="/resume">My Resume</a></li>
+        <li><a href="#">My Resume</a></li>
       </ul>
     </div>
 {{/if}}
@@ -46,6 +55,7 @@
   {{{body}}}
 
 </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="/js/styling.js"></script>
 <script src="/js/navbar.js"></script>
 {{#if loggedIn}}
