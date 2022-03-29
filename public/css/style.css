@@ -141,9 +141,9 @@ input:checked + .slider:before {
 .search-form {
   width: 80%;
 }
-.langlist {
+/* .langlist {
   list-style-position: inside;
-}
+} */
 .logo {
   float: left;
   height: 2.5rem;

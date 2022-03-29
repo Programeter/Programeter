@@ -1,13 +1,29 @@
-<div class="card m-2 border border-white align-center mw-33%" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title border-white text-white">{{user_name}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Strengths</h6>
-      <ul class="langlist ">
-        {{#each user_languages as |language|}}
-        <li class="text-white">{{language.language_name}}</li>
-        {{/each}}
-        </ul>
-    <a href="mailto:{{email}}"><i class='fas fa-envelope fa-xl mx-auto'></i></a>
-    <a href="http://github.com/{{github_name}}"><i class="fa-brands fa-github fa-xl mx-auto"></i></a>
+<div class="card m-2 border border-white align-center" style="width: 18rem;">
+  <div class="card-body bg-dark">
+    <div class="row">
+          <div class="col-6">
+          <h5 class="card-title border-white text-white">{{user_name}}</h5></div>
+          <div class="col-6">
+          <a href="http://github.com/{{github_name}}"><i class="fa-brands fa-github fa-lg"></i></a>
+          <a href="mailto:{{email}}"><i class='fas fa-envelope fa-lg'></i></a></div>
+    </div>
+       <div class="row g-0"> 
+          <div class="col-6">
+              <h6 class="card-subtitle mb-2 text-muted">Strengths</h6>
+              <ul class="langlist fs-6">
+                  {{#each user_languages as |language|}}
+                  <li class="text-white">{{language.language_name}}</li>
+                  {{/each}}
+              </ul>
+          </div>
+          <div class="col-6">
+              <h6 class="card-subtitle mb-2 text-muted">Compabitility</h6>
+              <ul class="text-white fs-6">
+                    <li>Personality: {{personal_compatibility}}</li>
+                    <li>Professional: {{personal_compatibility}}</li>
+                    <li>Technical: {{personal_compatibility}}</li>
+              </ul>
+          </div>
+        </div>
   </div>
 </div>
