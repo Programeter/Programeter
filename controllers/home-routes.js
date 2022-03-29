@@ -127,27 +127,35 @@ router.post('/verify-captcha', (req, res) => {
   
 // GET one user
 router.get('/user/:id', withAuth, async (req, res) => {
+try {
+  const userData = await User.findByPk(req.params.id, { include: [{
+    model: Language,
+    through: LanguageLink,
+    as: 'user_languages',
+  }]
+  });
+  const known_languages = userData.user_languages.map((language) => {return language.dataValues.language_name;});
   if (req.session.searchResults) {
     const userData = req.session.searchResults.find((user) => user.user.id == req.params.id);
     if (userData != undefined) {
       res.render('userprofile', {
         loggedIn: req.session.loggedIn,
-        user: userData
+        user: userData,
+        languages: known_languages
       });
       return;
     }
   }
-  try {
-    const userData = await User.findByPk(req.params.id);
+
     const userInfo = userData.get({ plain: true });
     const repos = await getRepos(userInfo.github_name);
 
     const user = {
       user: userInfo,
-      repos: repos
+      repos: repos,
     };
 
-    res.render('userprofile', { user: user, loggedIn: req.session.loggedIn });
+    res.render('userprofile', { user: user, loggedIn: req.session.loggedIn, languages: known_languages });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
