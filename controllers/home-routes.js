@@ -147,7 +147,7 @@ router.get('/user/:id', withAuth, async (req, res) => {
       repos: repos
     };
 
-    res.render('user', { user: user, loggedIn: req.session.loggedIn });
+    res.render('userprofile', { user: user, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
