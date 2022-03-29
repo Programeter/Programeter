@@ -79,30 +79,7 @@ async function searchByLanguages() {
     for (let i = 0; i < languageElements.length; i++) {
         searchArray.push(languageElements[i].innerHTML);
     }
-    // $.ajax({
-    //     type: 'post',
-    //     url: '/search',
-    //     data : {
-    //         languages: searchArray
-    //     }
-    //     // error: function(err) {
-    //     //     console.log('------------ Error while updating this resident: ' + err);
-    //     //     console.log('------------ Error while updating this resident: ' + err.message);
-    //     // }
-    // });
-    const response = await fetch('/search', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            languages: searchArray
-        }),
-    });
-    
-    const result = await response.json();
-    window.location.href = '/searchresults?users=' + JSON.stringify(result);
-    console.log('success');
+    window.location.href = '/search?languages=' + JSON.stringify(searchArray);
 } 
 
 searchBtn.addEventListener("click", (e)=> {

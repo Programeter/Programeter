@@ -8,7 +8,12 @@ const captcha = require("nodejs-captcha");
 const generateCompatibility = require('../utils/compatibility-generator');
 
 router.get('/', withAuth, async (req, res) => {
-    // insert home page stuff here
+  if (req.query.users) {
+    res.render('dashboard', {
+      users: JSON.parse(req.query.users)
+    });
+    return;
+  }  // insert home page stuff here
   try {
     const userData = await User.findAll({include: [{
       model: Language,
@@ -45,9 +50,9 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.post('/search', async (req, res) => {
+router.get('/search', async (req, res) => {
   try {
-    const searchResults = await searchHandler(1, req.body.languages);
+    const searchResults = await searchHandler(1, JSON.parse(req.query.languages));
     // res.session.searchResults = searchResults;
     const users = [];
       for (let i = 0; i < searchResults.length; i++) {
@@ -66,9 +71,7 @@ router.post('/search', async (req, res) => {
         };
         users.push(userObject); 
       }
-    // res.status(200).write('ok');
-    res.status(200).json(users);
-    // res.redirect('/searchresults?users='+JSON.stringify(users));
+    res.redirect('/?users=' + JSON.stringify(users));
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
