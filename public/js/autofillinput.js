@@ -62,7 +62,7 @@ function select(element){
     let language_name = element.textContent;
     let language_id = element.value;
     selBox.classList.add("p-3");
-    selBox.innerHTML += `<p class="selected-language ml-3" value="${language_id}">${language_name}</p>`;
+    selBox.innerHTML += `<div class="ml-3"><li class="selected-language" value="${language_id}">${language_name}</li></div>`;
     inputBox.value = null;
     // icon.onclick = ()=>{
     //     webLink = `https://www.google.com/search?q=${selectData}`;

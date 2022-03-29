@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
       for (let i = 0; i < req.body.languages.length; i++) {
         const newLanguageLink = await LanguageLink.create({
           user_id: dbUserData.id,
-          option_id: req.body.languages[i]
+          language_id: req.body.languages[i]
         });
       }
   
@@ -125,7 +125,7 @@ router.post('/login', async (req, res) => {
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.user = user;
-        
+
         res
           .status(200)
           .json({ user: dbUserData, message: 'You are now logged in!' });
