@@ -48,13 +48,12 @@ inputBox.onkeyup = async (e)=>{
 }
 
 function showSuggestions(list){
-    let listData;
-    if(!list.length){
-        userValue = inputBox.value;
-        listData = `<li>${userValue}</li>`;
-    }else{
-      listData = list.join('');
-    }
+    // if(!list.length){
+    //     userValue = inputBox.value;
+    //     listData = `<li>${userValue}</li>`;
+    // }else{
+    let listData = list.join('');
+    // }
     suggBox.innerHTML = listData;
 }
 
