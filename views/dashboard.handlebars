@@ -1,21 +1,21 @@
-<h2 class="d-flex justify-content-center">Dashboard</h2><br>
-    <div class="wrapper">
-      <div class="search-input">
-        <a href="" target="_blank" hidden></a>
-        <input type="text" placeholder="Type to search.." id="searchbar">
-        {{!-- <button type="button" class="btn btn-dark me-3" id="searchBtn">Search!</button> --}}
-        <div class="autocom-box">
-          <!-- here list are inserted from javascript -->
-        </div>
-        <div class="selected-box">
-          {{!-- Here include the selected items --}}
-        </div>
-        <div id="searchBtn" class="icon"><i class="fas fa-search"></i></div>
-      </div>
+{{!-- <h2 class="d-flex justify-content-center mt-5">Dashboard</h2> --}}
+<div class="wrapper">
+  <div class="search-input">
+    <a href="" target="_blank" hidden></a>
+    <input type="text" placeholder="Search by languages.." id="searchbar">
+    {{!-- <button type="button" class="btn btn-dark me-3" id="searchBtn">Search!</button> --}}
+    <div class="autocom-box">
+      <!-- here list are inserted from javascript -->
     </div>
+    <div class="selected-box">
+      {{!-- Here include the selected items --}}
+    </div>
+    <div id="searchBtn" class="icon"><i class="fas fa-search"></i></div>
+  </div>
+</div>
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid d-flex flex-row">
+  <div class="row w-100 justify-content-center m-0">
     {{#each users as |user|}}
     {{>cards}}
     {{/each}}

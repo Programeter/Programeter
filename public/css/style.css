@@ -263,6 +263,19 @@ input:checked + .slider:before {
   padding: 20px;
   margin-bottom: 10px;
 }
+.compatlist {
+  padding-left: 30%;
+}
+.compatlist li {
+  list-style-type: none;
+  text-align: left;
+}
+.langlist {
+  padding: 0;
+}
+.langlist li {
+  list-style-type: none;
+}
 
 .make-bigger:hover {
   transform: translate3D(0, -1px, 0) scale(1.1);

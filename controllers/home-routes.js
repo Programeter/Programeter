@@ -6,11 +6,13 @@ const searchHandler = require('../utils/search-handler');
 // import library
 const captcha = require("nodejs-captcha");
 const generateCompatibility = require('../utils/compatibility-generator');
+const { getRepos } = require('../utils/github-handler');
 
 router.get('/', withAuth, async (req, res) => {
   if (req.query.users) {
     const users = JSON.parse(req.query.users);
     res.render('dashboard', {
+      loggedIn: req.session.loggedIn,
       users: users
     });
     return;
@@ -64,7 +66,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/search', async (req, res) => {
   try {
-    const searchResults = await searchHandler(1, JSON.parse(req.query.languages));
+    const searchResults = await searchHandler(req.session.user.id, JSON.parse(req.query.languages));
     // res.session.searchResults = searchResults;
     const users = [];
       for (let i = 0; i < searchResults.length; i++) {
@@ -94,6 +96,7 @@ router.get('/search', async (req, res) => {
         });
         users.push(userObject); 
       }
+      req.session.searchResults = searchResults;
     res.redirect('/?users=' + JSON.stringify(users));
   } catch (err) {
     console.log(err);
@@ -124,12 +127,27 @@ router.post('/verify-captcha', (req, res) => {
   
 // GET one user
 router.get('/user/:id', withAuth, async (req, res) => {
+  if (req.session.searchResults) {
+    const userData = req.session.searchResults.find((user) => user.user.id == req.params.id);
+    if (userData != undefined) {
+      res.render('userprofile', {
+        loggedIn: res.session.loggedIn,
+        user: userData
+      });
+      return;
+    }
+  }
   try {
     const userData = await User.findByPk(req.params.id);
+    const userInfo = userData.get({ plain: true });
+    const repos = await getRepos(userInfo.github_name);
 
-    const user = userData.get({ plain: true });
+    const user = {
+      user: userInfo,
+      repos: repos
+    };
 
-    res.render('user', { user, loggedIn: req.session.loggedIn });
+    res.render('user', { user: user, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
