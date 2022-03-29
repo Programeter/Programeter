@@ -26,9 +26,9 @@
       <div class="form-group row justify-content-center py-1">
         <label for="password-signup" class="text-center">What languages do you know?:</label>
         {{!-- <input class="form-input text-center" type="text" id="languages" placeholder="Type to Search..." /> --}}
-        <div class="search-input">
+        <div class="search-input form-group">
           <a href="" target="_blank" hidden></a>
-          <input type="text" placeholder="Type to search.." id="searchbar">
+          <input class="form-input" type="text" placeholder="Type to find languages.." id="searchbar">
           {{!-- <button type="button" class="btn btn-dark me-3" id="searchBtn">Search!</button> --}}
           <div class="autocom-box">
             <!-- here list are inserted from javascript -->
@@ -38,8 +38,6 @@
           </div>
         </div>
       </div>
-
-    </div>
     {{#each questions as |question|}} 
     {{>signup-question}}
     {{/each}}
@@ -48,7 +46,7 @@
         <img class="mx-auto d-block" src={{captcha.image}} width={{captcha.width}} height={{captcha.height}}>
       </div>
       <label for="captcha-input" class="text-center py-1">What does the Captcha Say?</label>
-      <input class="form-input row justify-content-center py-1" type="text" id="captcha_input"/>
+      <input class="form-input text-center py-1" type="text" id="captcha_input"/>
     </div>
     <div class="row py-1 px-2 form-group">
       <input class="btn btn-primary" type="submit" value="submit"></input>
