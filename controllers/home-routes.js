@@ -221,7 +221,7 @@ router.get('/login', (req, res) => {
 
 router.get('/resume', (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect('/login');
+    res.redirect('/');
     return;
   }
 

@@ -19,7 +19,7 @@ body {
   z-index: 100;
 }
 
-.github{
+.github {
   position: relative;
   z-index: 110;
 }
@@ -109,6 +109,7 @@ input:checked + .slider:before {
   display: flex;
   margin: 0;
   padding: 0;
+  color: black;
 }
 
 .navbar-links li {
@@ -118,13 +119,17 @@ input:checked + .slider:before {
 .navbar-links li a {
   display: block;
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  background-color: #1ee9eb;
+  margin: 0.2rem;
+  border-radius: 10px;
 }
 
-.navbar-links li:hover {
+.navbar-links li a:hover {
   background-color: #555;
+  color: black;
 }
 
 .toggle-button {
@@ -288,4 +293,26 @@ input:checked + .slider:before {
 
 .make-bigger:hover {
   transform: translate3D(0, -1px, 0) scale(1.1);
+}
+
+a {
+  text-decoration: none;
+  padding: 8px 16px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.stretched-link {
+  visibility: hidden;
 }
