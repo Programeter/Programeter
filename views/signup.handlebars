@@ -1,30 +1,26 @@
-<h2 class="d-flex justify-content-center pt-3">Sign up</h2>
+<h2 class="d-flex justify-content-center pt-3 text-white">Sign up</h2>
 
 
 <div id="names" class="container d-flex flex-column justify-content-center p-3">
   <form class="form-group row justify-content-center signup-form">
     <div class="form-group row justify-content-center">
-        <label for="email-signup" class="text-center">Full Name:</label>
-        <input class="form-input text-center" type="text" id="user_name" />
+        <label for="email-signup" class="text-center text-white">Full Name:</label>
+        <input class="form-input text-center" type="text" id="user_name"  />
     </div>
       <div class="form-group row justify-content-center py-1">
-        <label for="email-signup" class="text-center">Email:</label>
+        <label for="email-signup" class="text-center text-white">Email:</label>
         <input class="form-input text-center" type="text" id="email-signup" />
-        <label for="email-signup" class="text-center">Confirm Email:</label>
-        <input class="form-input text-center" type="text" id="email-signup-verify" />
       </div>
       <div class="form-group row justify-content-center py-1">
-        <label for="password-signup" class="text-center">Password:</label>
+        <label for="password-signup" class="text-center text-white">Password:</label>
         <input class="form-input text-center" type="password" id="password-signup" />
-        <label for="password-signup" class="text-center">Confirm Password:</label>
-        <input class="form-input text-center" type="password" id="password-signup-verify" />
       </div>
       <div class="form-group row justify-content-center py-1">
-        <label for="github_name" class="text-center">Github Name:</label>
+        <label for="github_name" class="text-center text-white">Github Name:</label>
         <input class="form-input text-center" type="text" id="github_name" />
       </div>
       <div class="form-group row justify-content-center py-1">
-        <label for="password-signup" class="text-center">What languages do you know?:</label>
+        <label for="language-signup" class="text-center text-white">What languages do you know?:</label>
         {{!-- <input class="form-input text-center" type="text" id="languages" placeholder="Type to Search..." /> --}}
         <div class="search-input form-group">
           <a href="" target="_blank" hidden></a>
@@ -33,7 +29,7 @@
           <div class="autocom-box">
             <!-- here list are inserted from javascript -->
           </div>
-          <div class="selected-box">
+          <div class="selected-box text-white">
             {{!-- Here include the selected items --}}
           </div>
         </div>
@@ -41,6 +37,7 @@
     {{#each questions as |question|}} 
     {{>signup-question}}
     {{/each}}
+    </div>
     <div class="form-group row justify-content-center py-1">
       <div>
         <img class="mx-auto d-block" src={{captcha.image}} width={{captcha.width}} height={{captcha.height}}>
@@ -56,4 +53,4 @@
 <br>
 
 <script src="/js/autofillinput.js"></script>
-<script src="/js/signup.js"></script>
+<script src="../public/js/signup.js"></script>
