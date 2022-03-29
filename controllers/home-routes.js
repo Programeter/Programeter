@@ -225,7 +225,9 @@ router.get('/resume', (req, res) => {
     return;
   }
 
-  res.render('resume');
+  res.render('resume', {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 
