@@ -9,8 +9,9 @@ const generateCompatibility = require('../utils/compatibility-generator');
 
 router.get('/', withAuth, async (req, res) => {
   if (req.query.users) {
+    const users = JSON.parse(req.query.users);
     res.render('dashboard', {
-      users: JSON.parse(req.query.users)
+      users: users
     });
     return;
   }  // insert home page stuff here
@@ -58,13 +59,13 @@ router.get('/search', async (req, res) => {
       for (let i = 0; i < searchResults.length; i++) {
         const user = searchResults[i].user;
         const compatibility = searchResults[i].compatibility;
-        const languages = user.user_languages.map((language) => { return language.language_name; });
+        // const languages = user.user_languages.map((language) => { return language.language_name; });
         const userObject = {
           id: user.id,
           email: user.email,
           user_name: user.user_name,
           github_name: user.github_name,
-          user_languages: languages,
+          user_languages: user.user_languages,
           personal_compatibility: compatibility.personal_compatibility,
           work_compatibility: compatibility.work_compatibility,
           language_compatibility: compatibility.language_compataibility
