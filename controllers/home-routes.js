@@ -40,6 +40,17 @@ router.get('/', withAuth, async (req, res) => {
       };
       users.push(userObject);
     }
+    users.sort((a,b) => {
+      const a_avg = (a.personal_compatibility + a.work_compatibility + a.language_compatibility) / 3;
+      const b_avg = (b.personal_compatibility + b.work_compatibility + b.language_compatibility) / 3;
+      if (a_avg < b_avg) {
+        return +1;
+      } else if ( a_avg > b_avg) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
       users: users
@@ -70,6 +81,17 @@ router.get('/search', async (req, res) => {
           work_compatibility: compatibility.work_compatibility,
           language_compatibility: compatibility.language_compataibility
         };
+        users.sort((a,b) => {
+          const a_avg = (a.personal_compatibility + a.work_compatibility + a.language_compatibility) / 3;
+          const b_avg = (b.personal_compatibility + b.work_compatibility + b.language_compatibility) / 3;
+          if (a_avg < b_avg) {
+            return +1;
+          } else if ( a_avg > b_avg) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
         users.push(userObject); 
       }
     res.redirect('/?users=' + JSON.stringify(users));

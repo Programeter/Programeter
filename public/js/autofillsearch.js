@@ -84,6 +84,10 @@ async function searchByLanguages() {
 
 searchBtn.addEventListener("click", (e)=> {
     e.preventDefault();
+    const searchIcon = $('#searchBtn');
+    const wheel = '<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>';
+    searchIcon.empty();
+    searchIcon.append(wheel);
     searchByLanguages();
 });
 
