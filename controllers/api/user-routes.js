@@ -119,10 +119,13 @@ router.post('/login', async (req, res) => {
           .json({ message: 'Incorrect email or password. Please try again!' });
         return;
       }
+
+      const user = dbUserData.get({ plain: true });
   
       req.session.save(() => {
         req.session.loggedIn = true;
-  
+        req.session.user = user;
+        
         res
           .status(200)
           .json({ user: dbUserData, message: 'You are now logged in!' });

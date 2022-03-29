@@ -38,12 +38,17 @@ const signupFormHandler = async (event) => {
       for (let i = 0; i < answerValues.length; i++) {
         answers.push(answerValues[i].value);
       }
-      // const answers = document.querySelector('#values').value.trim();
-      const languageValues =  document.querySelectorAll('.ui-autocomplete-multiselect-item');
       const languages = [];
-      for (let i = 0; i < languageValues.length; i++) {
-        languages.push(languageValues[i].outerText);
+      const languageElements = document.querySelectorAll('.selected-language');
+      for (let i = 0; i < languageElements.length; i++) {
+          languages.push(Number(languageElements[i].value));
       }
+      // const answers = document.querySelector('#values').value.trim();
+      // const languageValues =  document.querySelectorAll('.ui-autocomplete-multiselect-item');
+      // const languages = [];
+      // for (let i = 0; i < languageValues.length; i++) {
+      //   languages.push(languageValues[i].outerText);
+      // }
     
       if (user_name && email && password && github_name && answers && languages) {
         const response = await fetch('/api/users', {

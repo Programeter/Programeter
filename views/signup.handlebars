@@ -26,7 +26,18 @@
       <div class="form-group row justify-content-center py-1">
         <label for="password-signup" class="text-center">What languages do you know?:</label>
         {{!-- <input class="form-input text-center" type="text" id="languages" placeholder="Type to Search..." /> --}}
-        <input id="languages" class="form-control w-100" type="text" />
+        <div class="search-input">
+          <a href="" target="_blank" hidden></a>
+          <input type="text" placeholder="Type to search.." id="searchbar">
+          {{!-- <button type="button" class="btn btn-dark me-3" id="searchBtn">Search!</button> --}}
+          <div class="autocom-box">
+            <!-- here list are inserted from javascript -->
+          </div>
+          <div class="selected-box">
+            {{!-- Here include the selected items --}}
+          </div>
+        </div>
+      </div>
 
     </div>
     {{#each questions as |question|}} 
@@ -46,4 +57,5 @@
 </div>
 <br>
 
+<script src="/js/autofillinput.js"></script>
 <script src="/js/signup.js"></script>

@@ -27,7 +27,11 @@ const searchHandler = async (searchUser, languages) => {
                 if (usersTried2 >= possibleUsers.length) {
                     // console.log(repoList);
                     // res.status(200).send(repoList);
-                    return repoList;
+                    const searchResults = {
+                        compatibility: compatibility,
+                        repos: repoList
+                    };
+                    return searchResults;
                 }
             }
         }
