@@ -86,8 +86,9 @@ input:checked + .slider:before {
 }
 
 .brand-title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   margin: 0.5rem;
+  color: #1ee9eb;
 }
 
 .navbar-links {
@@ -109,6 +110,7 @@ input:checked + .slider:before {
   text-decoration: none;
   color: white;
   padding: 1rem;
+  font-size: 1.2rem;
 }
 
 .navbar-links li:hover {
@@ -255,8 +257,12 @@ input:checked + .slider:before {
   color: #644bff;
   cursor: pointer;
 }
-.card {
+.card .mx-auto {
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 10px;
+}
+
+.make-bigger:hover {
+  transform: translate3D(0, -1px, 0) scale(1.1);
 }
