@@ -62,9 +62,12 @@ router.post('/', async (req, res) => {
           language_id: req.body.languages[i]
         });
       }
-  
+      
+      const user = dbUserData.get({ plain: true });
+
       req.session.save(() => {
         req.session.loggedIn = true;
+        req.session.user = user;
   
         res.status(200).json(dbUserData);
       });
