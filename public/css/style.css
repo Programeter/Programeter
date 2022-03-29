@@ -257,7 +257,6 @@ input:checked + .slider:before {
 }
 .card {
   border: 1px solid #ccc;
-  background-color: #f4f4f4;
   padding: 20px;
   margin-bottom: 10px;
 }
