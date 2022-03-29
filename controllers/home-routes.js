@@ -6,7 +6,7 @@ const searchHandler = require('../utils/search-handler');
 // import library
 const captcha = require("nodejs-captcha");
 const generateCompatibility = require('../utils/compatibility-generator');
-const { getRepos } = require('../utils/github-handler');
+const { getRepos, getLanguages } = require('../utils/github-handler');
 
 router.get('/', withAuth, async (req, res) => {
   if (req.query.users) {
@@ -146,16 +146,32 @@ try {
       return;
     }
   }
-
+    const searchingUserData = await User.findByPk(req.session.user.id, { include: [{
+      model: Language,
+      through: LanguageLink,
+      as: 'user_languages',
+    }]
+    });
+    const languages = searchingUserData.user_languages.map((language) => {return language.dataValues.language_name;});
     const userInfo = userData.get({ plain: true });
     const repos = await getRepos(userInfo.github_name);
-
-    const user = {
+    const repoList = [];
+    for (let i = 0; i < repos.length; i++) {
+      const repo = await getLanguages(userData.github_name, languages);
+      repoList.push(repo);
+    }
+    const user_Data = {
       user: userInfo,
-      repos: repos,
+      repos: repoList
+    };
+    const user = {
+      user: user_Data,
     };
 
-    res.render('userprofile', { user: user, loggedIn: req.session.loggedIn, languages: known_languages });
+    res.render('userprofile', { 
+      loggedIn: req.session.loggedIn, 
+      user: user_Data, 
+      languages: known_languages });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
