@@ -12,6 +12,7 @@ $(function(){
     });
   });
 });
+
   
 const signupFormHandler = async (event) => {
   console.log('here');
@@ -79,3 +80,4 @@ $(document).ready(function() {
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
 });
+
