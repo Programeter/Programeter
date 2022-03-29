@@ -1,37 +1,49 @@
 const compatibilityGenerator = require('./compatibility-generator');
 const githubHandler = require('./github-handler');
-const { User } = require('../models');
+const { User, Language, LanguageLink } = require('../models');
 
 const searchHandler = async (searchUser, languages) => {
-    let dbUserData = await User.findAll();
+    let dbUserData = await User.findAll({
+        include: [{
+            model: Language,
+            through: LanguageLink,
+            as: 'user_languages'
+        }]
+    });
     let users = dbUserData.map((user) => user.get({ plain: true }));
     let possibleUsers = [];
     const numOfUsers = users.length;
     let usersTried1 = 0;
     let usersTried2 = 0;
-    let repoList = [];
-    for (const x in users) {
+    let resultsList = [];
+    for (let x = 0; x < numOfUsers; x++) {
         usersTried1++;
         if (searchUser == users[x].id) {
             continue;
         }
         const compatibility = await compatibilityGenerator(searchUser, users[x].id, languages);
         if (compatibility.personal_compatibility && compatibility.work_compatibility && compatibility.language_compataibility) {
-            possibleUsers.push(users[x]);
+            const userAndCompat = {
+                user: users[x],
+                compatibility: compatibility
+            };
+            possibleUsers.push(userAndCompat);
         }
+
         if (usersTried1 >= numOfUsers) {
-            for (const i in possibleUsers) {
+            for (let i = 0; i < possibleUsers.length; i++) {
                 usersTried2++;
-                const repos = await githubHandler.searchByLanguage(possibleUsers[i].github_name, languages);
-                repoList = repoList.concat(repos);
+                const repos = await githubHandler.searchByLanguage(possibleUsers[i].user.github_name, languages);
+                const searchResults = {
+                    user: possibleUsers[i].user,
+                    compatibility: possibleUsers[i].compatibility,
+                    repos: repos
+                };
+                resultsList = resultsList.concat(searchResults);
                 if (usersTried2 >= possibleUsers.length) {
                     // console.log(repoList);
                     // res.status(200).send(repoList);
-                    const searchResults = {
-                        compatibility: compatibility,
-                        repos: repoList
-                    };
-                    return searchResults;
+                    return resultsList;
                 }
             }
         }

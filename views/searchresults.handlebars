@@ -1,0 +1,38 @@
+  <h2 class="d-flex justify-content-center">Results</h2><br>
+  <!--Search bar-->
+  <!-- <form class="d-flex justify-content-center"id="searchbar"> 
+    <div class="input-group mb-1" >
+        <div class="mx-3">
+        </div>
+        <input type="text" class="search-form" placeholder="Start typing technologies">
+      </div>
+      <button type="button" class="btn btn-dark me-3">Search!</button>
+    </form> -->
+    <div class="wrapper">
+      <div class="search-input">
+        <a href="" target="_blank" hidden></a>
+        <input type="text" placeholder="Type to search.." id="searchbar">
+        {{!-- <button type="button" class="btn btn-dark me-3" id="searchBtn">Search!</button> --}}
+        <div class="autocom-box">
+          <!-- here list are inserted from javascript -->
+        </div>
+        <div class="selected-box">
+          {{!-- Here include the selected items --}}
+        </div>
+        <div id="searchBtn" class="icon"><i class="fas fa-search"></i></div>
+      </div>
+    </div>
+
+<div class="card-group">
+{{#each users as |user|}}
+{{>cards}}
+{{/each}}
+</div>
+
+</body>
+<script src="/js/autofillsearch.js"></script>
+{{!-- <script src="/js/searchcookie.js"></script> --}}
+
+</html>
+
+

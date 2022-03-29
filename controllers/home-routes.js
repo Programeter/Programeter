@@ -46,8 +46,32 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.post('/search', async (req, res) => {
-  const searchResults = await searchHandler(1, req.body.languages);
-  res.status(200).json(searchResults);
+  try {
+    const searchResults = await searchHandler(1, req.body.languages);
+    // res.session.searchResults = searchResults;
+    const users = [];
+      for (let i = 0; i < searchResults.length; i++) {
+        const user = searchResults[i].user;
+        const compatibility = searchResults[i].compatibility;
+        const languages = user.user_languages.map((language) => { return language.language_name; });
+        const userObject = {
+          id: user.id,
+          email: user.email,
+          user_name: user.user_name,
+          github_name: user.github_name,
+          user_languages: languages,
+          personal_compatibility: compatibility.personal_compatibility,
+          work_compatibility: compatibility.work_compatibility,
+          language_compatibility: compatibility.language_compataibility
+        };
+        users.push(userObject); 
+      }
+    // res.status(200).send({message: 'ok'});
+    res.render('searchresults');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.post('/verify-captcha', (req, res) => {
