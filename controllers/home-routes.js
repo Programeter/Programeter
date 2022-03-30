@@ -6,7 +6,7 @@ const searchHandler = require('../utils/search-handler');
 // import library
 const captcha = require("nodejs-captcha");
 const generateCompatibility = require('../utils/compatibility-generator');
-const { getRepos } = require('../utils/github-handler');
+const { getRepos, getLanguages, searchByLanguage } = require('../utils/github-handler');
 
 router.get('/', withAuth, async (req, res) => {
   if (req.query.users) {
@@ -127,34 +127,52 @@ router.post('/verify-captcha', (req, res) => {
   
 // GET one user
 router.get('/user/:id', withAuth, async (req, res) => {
+try {
+  const userData = await User.findByPk(req.params.id, { include: [{
+    model: Language,
+    through: LanguageLink,
+    as: 'user_languages',
+  }]
+  });
+  const known_languages = userData.user_languages.map((language) => {return language.dataValues.language_name;});
   if (req.session.searchResults) {
     const userData = req.session.searchResults.find((user) => user.user.id == req.params.id);
     if (userData != undefined) {
       res.render('userprofile', {
-        loggedIn: res.session.loggedIn,
-        user: userData
+        loggedIn: req.session.loggedIn,
+        user: userData,
+        languages: known_languages
       });
       return;
     }
   }
-  try {
-    const userData = await User.findByPk(req.params.id);
+    const searchingUserData = await User.findByPk(req.session.user.id, { include: [{
+      model: Language,
+      through: LanguageLink,
+      as: 'user_languages',
+    }]
+    });
+    const languages = searchingUserData.user_languages.map((language) => {return language.dataValues.language_name;});
     const userInfo = userData.get({ plain: true });
-    const repos = await getRepos(userInfo.github_name);
-
-    const user = {
+    const repos = await searchByLanguage(userInfo.github_name, languages);
+    
+    const user_Data = {
       user: userInfo,
       repos: repos
     };
+    const user = {
+      user: user_Data,
+    };
 
-    res.render('user', { user: user, loggedIn: req.session.loggedIn });
+    res.render('userprofile', { 
+      loggedIn: req.session.loggedIn, 
+      user: user_Data, 
+      languages: known_languages });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -215,11 +233,13 @@ router.get('/login', (req, res) => {
 
 router.get('/resume', (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect('/login');
+    res.redirect('/');
     return;
   }
 
-  res.render('resume');
+  res.render('resume', {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 
