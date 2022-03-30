@@ -302,10 +302,10 @@ input:checked + .slider:before {
 }
 
 .make-bigger:hover {
-  transform: translate3D(0, -1px, 0) scale(1.1);
+  transform: translate3D(0, -1px, 0) scale(1.03);
 }
 
- a {
+a {
   text-decoration: none;
   padding: 8px 16px;
   align-items: center;
@@ -313,9 +313,7 @@ input:checked + .slider:before {
   justify-content: center;
 }
 
-
 .previous {
   background-color: #f1f1f1;
   color: black;
 }
-

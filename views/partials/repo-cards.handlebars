@@ -1,15 +1,15 @@
 
 <div class="col-12 col-md-6 col-lg-4 p-4">
   <div class="card mx-auto bg-dark text-white p-3 h-100">
-    <h3 class="card-title border-white">Repo: {{repo_name}}</h3>
+    <h3 class="card-title border-white text-primary">Repo: {{repo_name}}</h3>
     <p>Description: {{description}}</p>
-    <ul class="repo-languages col-6">Languages:</ul>
+    <ul class="repo-languages col-6 text-primary">Languages:</ul>
     {{#each languages as |language|}}
     <li class="repo-language">{{language}}</li>
     {{/each}}
     
     <br>
-    <p class="col-6">Repo Link:<a href="{{url}}"><i class="fa-brands fa-github fa-lg"></i></a></p>
+    <p class="col-12">Repo Link:<a href="{{url}}">{{url}}</a></p>
   </div>
 </div>
 
