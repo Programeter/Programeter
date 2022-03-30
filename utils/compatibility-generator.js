@@ -77,7 +77,6 @@ const generateCompatibility = async (user1Id, user2Id, searchLanguages) => {
         'language_compataibility': language_compatibility_percentage
     };
 
-    // console.log(returnValue);
     return returnValue;
 };
 

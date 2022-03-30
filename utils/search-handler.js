@@ -41,8 +41,6 @@ const searchHandler = async (searchUser, languages) => {
                 };
                 resultsList = resultsList.concat(searchResults);
                 if (usersTried2 >= possibleUsers.length) {
-                    // console.log(repoList);
-                    // res.status(200).send(repoList);
                     return resultsList;
                 }
             }
