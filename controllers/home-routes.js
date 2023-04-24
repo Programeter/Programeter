@@ -19,6 +19,7 @@ router.get('/', withAuth, async (req, res) => {
     return;
   }  // insert home page stuff here
   try {
+    await seedDatabase();
     const userData = await User.findAll({include: [{
       model: Language,
       through: LanguageLink,
@@ -241,10 +242,6 @@ router.get('/resume', (req, res) => {
   res.render('resume', {
     loggedIn: req.session.loggedIn
   });
-});
-
-router.get('/populate', (req, res) => {
-  seedDatabase();
 });
 
 
