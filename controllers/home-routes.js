@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Question, Option, Language, LanguageLink } = require('../models');
 const withAuth = require('../utils/auth');
 const searchHandler = require('../utils/search-handler');
+const seedDatabase = require('../seeds/seed');
 
 // import library
 const captcha = require("nodejs-captcha");
@@ -240,6 +241,10 @@ router.get('/resume', (req, res) => {
   res.render('resume', {
     loggedIn: req.session.loggedIn
   });
+});
+
+router.get('/populate', (req, res) => {
+  seedDatabase();
 });
 
 

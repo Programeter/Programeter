@@ -1,3 +1,4 @@
+const { get } = require('express/lib/response');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
@@ -12,6 +13,7 @@ const getRepos = async (user) => {
         },
     });
     const repos = await response.json();
+    console.log(repos);
     return repos;
 };
 
@@ -57,5 +59,7 @@ const searchByLanguage = async (user, languageList) => {
 
     return repoList;
 };
+
+getRepos('SlaterMcArdle');
 
 module.exports = { getRepos, getLanguages, searchByLanguage };
