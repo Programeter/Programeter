@@ -7,6 +7,7 @@ const optionData = require('./optionsData.json');
 const languageData = require('./languageData.json');
 
 const seedDatabase = async () => {
+  console.log('starting seed');
   let users = [];
   let questions = [];
   let options = [];
@@ -18,6 +19,7 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
+    console.log('seeding user');
     users.push(user);
   }
  
@@ -25,6 +27,7 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
+    console.log('seeding question');
     questions.push(question);
   }
   
@@ -32,6 +35,7 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
+    console.log('seeding option');
     options.push(option);
   }
   
@@ -39,6 +43,7 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
+    console.log('seeding language');
     languages.push(language);
   }
 
@@ -55,6 +60,7 @@ const seedDatabase = async () => {
         user_id: user.id,
         option_id: options[Math.floor(Math.random()*options.length)].id
       });
+      console.log('seeding user answer');
     }
 
     // give each user three random languages
@@ -63,6 +69,7 @@ const seedDatabase = async () => {
         user_id: user.id,
         language_id: languages[Math.floor(Math.random() * languages.length)].id
       });
+      console.log('seeding language link');
     }
   }
 
