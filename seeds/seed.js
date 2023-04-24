@@ -65,8 +65,10 @@ const seedDatabase = async () => {
       });
     }
   }
+
+  console.log('seeding complete')
   
-  process.exit(0);
+  // process.exit(0);
 
 };
 
