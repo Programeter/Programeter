@@ -176,6 +176,10 @@ input:checked + .slider:before {
   padding: 0;
 }
 
+.fifpx {
+  padding: 15px;
+}
+
 .repo-language {
   margin-left: 1rem;
   list-style: none;
