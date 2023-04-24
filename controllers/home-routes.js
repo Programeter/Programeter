@@ -10,14 +10,14 @@ const generateCompatibility = require('../utils/compatibility-generator');
 const { getRepos, getLanguages, searchByLanguage } = require('../utils/github-handler');
 
 router.get('/', withAuth, async (req, res) => {
-  if (req.query.users) {
-    const users = JSON.parse(req.query.users);
-    res.render('dashboard', {
-      loggedIn: req.session.loggedIn,
-      users: users
-    });
-    return;
-  }  // insert home page stuff here
+  // if (req.query.users) {
+  //   const users = JSON.parse(req.query.users);
+  //   res.render('dashboard', {
+  //     loggedIn: req.session.loggedIn,
+  //     users: users
+  //   });
+  //   return;
+  // }  // insert home page stuff here
   try {
     await seedDatabase();
     const userData = await User.findAll({include: [{
